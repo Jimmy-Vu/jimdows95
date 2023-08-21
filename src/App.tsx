@@ -1,9 +1,10 @@
+import Taskbar from "./components/Taskbar"
 function App() {
 
   return (
     <>
       <main>
-
+        <Taskbar />
       </main>
     </>
   )

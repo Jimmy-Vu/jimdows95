@@ -1,0 +1,14 @@
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background-color: #C0C0C0;
+}
+
+main {
+  height: 100dvh;
+  background-color: #2E8181;
+}
+
+/*# sourceMappingURL=styles.css.map */

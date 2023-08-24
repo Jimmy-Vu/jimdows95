@@ -1,13 +1,47 @@
 .taskbar {
   position: absolute;
   bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 40px;
   width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #C0C0C0;
+}
+.taskbar__menu-btn {
+  height: 100%;
+  width: 100px;
+  margin-left: 5px;
+  background-color: #C0C0C0;
+  font-size: 20px;
+}
+.taskbar__menu-btn:hover {
+  cursor: pointer;
+}
+.taskbar__time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 100%;
+  width: 100px;
+  margin-right: 5px;
+  border: 2px inset;
+  font-size: 20px;
+}
+
+@font-face {
+  font-family: "W95FA";
+  src: url("../assets/fonts/W95FA.otf");
+}
+* {
+  font-family: "W95FA", sans-serif;
 }
 
 main {
-  height: 100dvh;
+  height: 100vh;
   background-color: #2E8181;
 }
 

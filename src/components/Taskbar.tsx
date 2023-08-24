@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 export default function Taskbar() {
-
   const [currTime, setCurrTime] = useState(new Date().toLocaleTimeString(undefined, {
     hour12: true, // Keep AM/PM indicator
     hour: 'numeric',

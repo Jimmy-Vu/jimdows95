@@ -8,6 +8,7 @@
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
+  border-top: 1px solid white;
   background-color: #C0C0C0;
 }
 .taskbar__menu-btn {
@@ -30,6 +31,7 @@
   margin-right: 5px;
   border: 2px inset;
   font-size: 20px;
+  background-color: #D9D9D9;
 }
 
 @font-face {

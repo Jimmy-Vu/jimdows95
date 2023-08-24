@@ -12,14 +12,30 @@
   background-color: #C0C0C0;
 }
 .taskbar__menu-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
-  width: 100px;
+  width: 90px;
   margin-left: 5px;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
   background-color: #C0C0C0;
   font-size: 20px;
 }
 .taskbar__menu-btn:hover {
   cursor: pointer;
+}
+.taskbar__menu-btn--active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 90px;
+  margin-left: 5px;
+  border: 2px inset;
+  background-color: #C0C0C0;
+  font-size: 20px;
 }
 .taskbar__time {
   display: flex;

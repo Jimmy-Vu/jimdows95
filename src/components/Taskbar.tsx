@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import StartMenu from "./StartMenu";
 
 export default function Taskbar() {
-  const [menuIsActive, setMenuIsActive] = useState(false);
+  const [menuIsActive, setMenuIsActive] = useState(true);
   const [currTime, setCurrTime] = useState(new Date().toLocaleTimeString(undefined, {
     hour12: true, // Keep AM/PM indicator
     hour: 'numeric',

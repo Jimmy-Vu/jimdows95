@@ -1,4 +1,5 @@
 @use "./components/Taskbar.scss";
+@use "./components/StartMenu.scss";
 @use "./fonts.scss";
 
 * {
@@ -7,4 +8,8 @@
 main {
   height: 100vh;
   background-color: #2E8181;
+}
+
+button, a {
+  cursor: pointer;
 }

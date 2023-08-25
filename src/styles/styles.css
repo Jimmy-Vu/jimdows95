@@ -23,9 +23,6 @@
   background-color: #C0C0C0;
   font-size: 20px;
 }
-.taskbar__menu-btn:hover {
-  cursor: pointer;
-}
 .taskbar__menu-btn--active {
   display: flex;
   justify-content: space-between;
@@ -50,6 +47,46 @@
   background-color: #D9D9D9;
 }
 
+.start-menu {
+  position: absolute;
+  bottom: 40px;
+  left: 5px;
+  z-index: 1;
+  display: flex;
+  height: 400px;
+  width: 300px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  background-color: #C0C0C0;
+}
+.start-menu--inactive {
+  display: none;
+}
+.start-menu__banner {
+  height: 100%;
+  width: 60px;
+  background-color: #817F85;
+}
+.start-menu__banner__name {
+  transform: translateY(250px) rotate(-90deg);
+  color: white;
+  font-size: 56px;
+}
+.start-menu__app-drawer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.start-menu__app-drawer .app-drawer__programs {
+  height: 85%;
+  width: 100%;
+}
+.start-menu__app-drawer .app-drawer__shut-down {
+  flex-grow: 1;
+  border-top: 2px solid #9E9A9C;
+}
+
 @font-face {
   font-family: "W95FA";
   src: url("../assets/fonts/W95FA.otf");
@@ -61,6 +98,10 @@
 main {
   height: 100vh;
   background-color: #2E8181;
+}
+
+button, a {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

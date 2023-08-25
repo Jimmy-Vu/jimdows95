@@ -68,7 +68,7 @@
   background-color: #817F85;
 }
 .start-menu__banner__name {
-  transform: translateY(250px) rotate(-90deg);
+  transform: translateY(200px) rotate(-90deg);
   color: white;
   font-size: 56px;
 }
@@ -84,7 +84,14 @@
 }
 .start-menu__app-drawer .app-drawer__shut-down {
   flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
   border-top: 2px solid #9E9A9C;
+  background-color: #C0C0C0;
 }
 
 @font-face {

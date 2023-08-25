@@ -10,7 +10,10 @@ export default function StartMenu() {
       </div>
       <section className="start-menu__app-drawer">
         <div className="app-drawer__programs"></div>
-        <div className="app-drawer__shut-down"></div>
+        <button className="app-drawer__shut-down">
+          <img src="/src/assets/shut_down_with_computer-0.png" alt="icon for the shut down button" />
+          <p>Shut Down</p>
+        </button>
       </section>
     </div>
   )

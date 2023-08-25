@@ -1,0 +1,66 @@
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid white;
+  background-color: #C0C0C0;
+}
+.taskbar__menu-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 90px;
+  margin-left: 5px;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  background-color: #C0C0C0;
+  font-size: 20px;
+}
+.taskbar__menu-btn:hover {
+  cursor: pointer;
+}
+.taskbar__menu-btn--active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 90px;
+  margin-left: 5px;
+  border: 2px inset;
+  background-color: #C0C0C0;
+  font-size: 20px;
+}
+.taskbar__time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 100%;
+  width: 100px;
+  margin-right: 5px;
+  border: 2px inset;
+  font-size: 20px;
+  background-color: #D9D9D9;
+}
+
+@font-face {
+  font-family: "W95FA";
+  src: url("../assets/fonts/W95FA.otf");
+}
+* {
+  font-family: "W95FA", sans-serif;
+}
+
+main {
+  height: 100vh;
+  background-color: #2E8181;
+}
+
+/*# sourceMappingURL=styles.css.map */

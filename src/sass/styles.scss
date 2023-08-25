@@ -1,0 +1,10 @@
+@use "./components/Taskbar.scss";
+@use "./fonts.scss";
+
+* {
+  font-family: "W95FA", sans-serif;
+}
+main {
+  height: 100vh;
+  background-color: #2E8181;
+}

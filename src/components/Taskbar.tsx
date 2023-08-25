@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import StartMenu from "./StartMenu";
 
 export default function Taskbar() {
   const [menuIsActive, setMenuIsActive] = useState(false);
@@ -20,6 +21,7 @@ export default function Taskbar() {
 
   return (
     <>
+      <StartMenu menuIsActive={menuIsActive} />
       <section className="taskbar">
         <button onClick={() => setMenuIsActive(prev => !prev)} className={menuIsActive ? `taskbar__menu-btn--active` : `taskbar__menu-btn` }>
           <img src="/src/assets/win95_logo.png" alt="" />

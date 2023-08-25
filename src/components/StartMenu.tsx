@@ -1,10 +1,8 @@
-import { useState } from "react"
-
-export default function StartMenu() {
-  const [startIsOpened, setStartIsOpened] = useState(true);
+export default function StartMenu(props: { menuIsActive: boolean }) {
+  const menuIsActive = props.menuIsActive;
 
   return (
-    <div className={startIsOpened ? `start-menu` : `start-menu--inactive`}>
+    <div className={menuIsActive ? `start-menu` : `start-menu--inactive`}>
       <div className="start-menu__banner">
         <p className="start-menu__banner__name">Jimdows95</p>
       </div>

@@ -84,29 +84,46 @@
   display: flex;
   flex-direction: column;
   height: 85%;
-  width: 100%;
-  padding-left: 2rem;
+  max-width: 100%;
 }
 .start-menu__app-drawer .app-drawer__programs .programs__item {
   display: flex;
   align-items: center;
-  height: 40px;
-  margin-bottom: 2rem;
-  font-size: 20px;
+  flex-grow: 1;
+  padding-left: 2rem;
 }
-.start-menu__app-drawer .app-drawer__programs .programs__item img {
-  height: 100%;
+.start-menu__app-drawer .app-drawer__programs .programs__item:hover {
+  color: white;
+  background-color: blue;
+}
+.start-menu__app-drawer .app-drawer__programs .programs__item__icon {
+  height: 40px;
+}
+.start-menu__app-drawer .app-drawer__programs .programs__item__text {
+  margin-left: 2rem;
+  font-size: 20px;
 }
 .start-menu__app-drawer .app-drawer__shut-down {
   flex-grow: 1;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  padding-left: 2rem;
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
   border-top: 2px solid #9E9A9C;
   background-color: #C0C0C0;
+}
+.start-menu__app-drawer .app-drawer__shut-down:hover {
+  color: white;
+  background-color: blue;
+}
+.start-menu__app-drawer .app-drawer__shut-down .shut-down__icon {
+  height: 40px;
+}
+.start-menu__app-drawer .app-drawer__shut-down .shut-down__text {
+  margin-left: 2rem;
+  font-size: 20px;
 }
 
 @font-face {

@@ -43,21 +43,29 @@
       &__programs {
         display: flex;
         flex-direction: column;
+
         height: 85%;
-        width: 100%;
-        padding-left: 2rem;
+        max-width: 100%;
 
         .programs {
-            &__item {
+          &__item {
             display: flex;
             align-items: center;
-            height: 40px;
-            margin-bottom: 2rem;
+            flex-grow: 1;
+            padding-left: 2rem;
 
-            font-size: 20px;
+            &:hover {
+              color: white;
+              background-color: blue;
+            }
 
-            img {
-              height: 100%;
+            &__icon {
+              height: 40px;
+            }
+
+            &__text {
+              margin-left: 2rem;
+              font-size: 20px;
             }
           }
         }
@@ -66,8 +74,8 @@
       &__shut-down {
         flex-grow: 1;
         display: flex;
-        justify-content: space-around;
         align-items: center;
+        padding-left: 2rem;
 
         border-left: 0;
         border-right: 0;
@@ -75,6 +83,20 @@
         border-top: 2px solid #9E9A9C;
 
         background-color: #C0C0C0;
+
+        &:hover {
+          color: white;
+          background-color: blue;
+        }
+
+        .shut-down__icon {
+          height: 40px;
+        }
+
+        .shut-down__text {
+          margin-left: 2rem;
+          font-size: 20px;
+        }
       }
     }
   }

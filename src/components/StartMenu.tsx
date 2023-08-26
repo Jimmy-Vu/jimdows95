@@ -17,7 +17,7 @@ export default function StartMenu(props: { menuIsActive: boolean }) {
             <p className="programs__item__text">GitHub</p>
           </a>
           <a href="https://twitter.com/thrownewJimmy" target="_blank" className="programs__item" id="twitter">
-            <img className="programs__item__icon" src="/src/assets/twitter-icon.png" alt="icon of two computers connecting to a cloud" />
+            <img className="programs__item__icon" src="/src/assets/twitter-icon.png" alt="icon of envelopes in a basket in front of a globe" />
             <p className="programs__item__text">Twitter</p>
           </a>
           <a href="https://dimden.dev/" target="_blank" className="programs__item" id="dimdev">

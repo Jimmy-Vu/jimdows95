@@ -66,13 +66,13 @@
 }
 .start-menu__banner {
   height: 100%;
-  width: 60px;
+  width: 40px;
   background-color: #817F85;
 }
 .start-menu__banner__name {
-  transform: translateY(270px) rotate(-90deg);
+  transform: translateY(305px) translateX(3px) rotate(-90deg);
   color: white;
-  font-size: 56px;
+  font-size: 44px;
 }
 .start-menu__app-drawer {
   display: flex;

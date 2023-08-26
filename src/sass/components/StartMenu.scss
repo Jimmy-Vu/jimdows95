@@ -41,8 +41,26 @@
 
     .app-drawer {
       &__programs {
+        display: flex;
+        flex-direction: column;
         height: 85%;
         width: 100%;
+        padding-left: 2rem;
+
+        .programs {
+            &__item {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            margin-bottom: 2rem;
+
+            font-size: 20px;
+
+            img {
+              height: 100%;
+            }
+          }
+        }
       }
 
       &__shut-down {

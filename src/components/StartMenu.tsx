@@ -20,9 +20,9 @@ export default function StartMenu(props: { menuIsActive: boolean }) {
             <img className="programs__item__icon" src="/src/assets/twitter-icon.png" alt="icon of envelopes in a basket in front of a globe" />
             <p className="programs__item__text">Twitter</p>
           </a>
-          <a href="https://dimden.dev/" target="_blank" className="programs__item" id="dimdev">
+          <a href="https://www.youtube.com/watch?v=lAkuJXGldrM" target="_blank" className="programs__item" id="dimdev">
             <img className="programs__item__icon" src="/src/assets/dimdev-icon.png" alt="icon of internet explorer" />
-            <p className="programs__item__text">Cool Retro Site</p>
+            <p className="programs__item__text">A Cool Video</p>
           </a>
         </div>
         <button className="app-drawer__shut-down">

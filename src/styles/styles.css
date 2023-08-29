@@ -127,9 +127,11 @@
 }
 
 .desktop-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 200px;
-  height: 100%;
-  padding-top: 2rem;
+  height: 400px;
   padding-left: 2rem;
   color: white;
 }
@@ -139,8 +141,10 @@
   align-items: center;
   max-width: 60px;
   max-height: 60px;
-  margin-bottom: 3rem;
   text-align: center;
+}
+.desktop-icons .icon button {
+  border: none;
 }
 .desktop-icons .icon-img {
   background-color: transparent;
@@ -148,8 +152,11 @@
 .desktop-icons .about-me img {
   width: 60px;
 }
+.desktop-icons .projects img {
+  width: 60px;
+}
 .desktop-icons .contact img {
-  max-height: 100px;
+  max-height: 60px;
 }
 
 @font-face {
@@ -163,10 +170,6 @@
 main {
   height: 100vh;
   background-color: #2E8181;
-}
-
-button {
-  border: 0;
 }
 
 button, a, label {

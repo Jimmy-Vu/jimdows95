@@ -1,5 +1,6 @@
 @use "./components/Taskbar.scss";
 @use "./components/StartMenu.scss";
+@use "./components/DesktopIcons.scss";
 @use "./fonts.scss";
 
 * {
@@ -10,6 +11,6 @@ main {
   background-color: #2E8181;
 }
 
-button, a {
+button, a, label {
   cursor: pointer;
 }

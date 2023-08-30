@@ -126,6 +126,42 @@
   font-size: 20px;
 }
 
+.desktop-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 200px;
+  height: 300px;
+  padding-left: 2rem;
+  color: white;
+}
+.desktop-icons .icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50px;
+  max-height: 50px;
+  text-align: center;
+}
+.desktop-icons .icon button {
+  border: none;
+}
+.desktop-icons .icon-img {
+  background-color: transparent;
+}
+.desktop-icons .about-me {
+  margin-bottom: 1rem;
+}
+.desktop-icons .about-me img {
+  width: 50px;
+}
+.desktop-icons .projects img {
+  width: 50px;
+}
+.desktop-icons .contact img {
+  max-height: 50px;
+}
+
 @font-face {
   font-family: "W95FA";
   src: url("../assets/fonts/W95FA.otf");
@@ -139,7 +175,7 @@ main {
   background-color: #2E8181;
 }
 
-button, a {
+button, a, label {
   cursor: pointer;
 }
 

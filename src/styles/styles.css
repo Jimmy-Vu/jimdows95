@@ -179,9 +179,19 @@
   height: 100%;
 }
 .window__header {
+  display: flex;
+  align-items: center;
   height: 30px;
   width: 100%;
   background-color: #817F85;
+}
+.window__header__icon {
+  max-height: 95%;
+}
+.window__header__title {
+  margin: 0;
+  font-size: 16px;
+  color: white;
 }
 
 @font-face {

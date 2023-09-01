@@ -1,6 +1,6 @@
-import Taskbar from "./components/Taskbar"
-import DesktopIcons from "./components/DesktopIcons"
-import Window from "./components/windows/Window"
+import Taskbar from "./components/Taskbar";
+import DesktopIcons from "./components/DesktopIcons";
+import AboutMe from "./components/windows/AboutMe";
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <main>
         <DesktopIcons />
-        <Window />
+        <AboutMe />
         <Taskbar />
       </main>
     </>

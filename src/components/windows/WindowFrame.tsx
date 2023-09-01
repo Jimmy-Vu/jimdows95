@@ -1,7 +1,11 @@
 import Draggable from "react-draggable";
 import { Resizable } from 're-resizable';
 
-export default function Window() {
+export default function WindowFrame(props: {
+  title: string,
+  icon: string
+}) {
+
   return (
     <Draggable handle=".window__header">
       <Resizable
@@ -27,6 +31,8 @@ export default function Window() {
       >
         <section className="window__main">
           <header className="window__header">
+            <img className="window__header__icon" src={props.icon} alt="" />
+            <h1 className="window__header__title">{props.title}</h1>
           </header>
         </section>
       </Resizable>

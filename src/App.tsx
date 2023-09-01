@@ -1,5 +1,6 @@
 import Taskbar from "./components/Taskbar"
 import DesktopIcons from "./components/DesktopIcons"
+import Window from "./components/windows/Window"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <main>
         <DesktopIcons />
+        <Window />
         <Taskbar />
       </main>
     </>

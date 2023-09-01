@@ -162,6 +162,13 @@
   max-height: 50px;
 }
 
+.window {
+  position: absolute;
+  height: 400px;
+  width: 600px;
+  background-color: red;
+}
+
 @font-face {
   font-family: "W95FA";
   src: url("../assets/fonts/W95FA.otf");

@@ -10,6 +10,11 @@
   height: 400px;
   width: 600px;
   padding: 4px;
+
+  border-top: white solid 1px;
+  border-left: white solid 1px;
+  border-bottom: black solid 2px;
+  border-right: black solid 2px;
   background-color: #c2c0c1;
 
   &__header {

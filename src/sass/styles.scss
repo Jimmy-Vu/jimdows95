@@ -7,8 +7,14 @@
 * {
   font-family: "W95FA", sans-serif;
 }
+
 main {
+  position: relative;
+  overflow: hidden;
+
   height: 100vh;
+  max-height: 100vh;
+
   background-color: #2E8181;
 }
 

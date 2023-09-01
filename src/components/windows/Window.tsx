@@ -1,11 +1,26 @@
 import Draggable from "react-draggable";
+import { Resizable } from 're-resizable';
 
 export default function Window() {
   return (
-    <Draggable positionOffset={{ x: '-50%', y: '-50%' }}>
+    <Draggable
+      handle=".window__header"
+      positionOffset={{ x: '-50%', y: '-50%' }}
+    >
+      {/* <Resizable
+        defaultSize={{
+          width: 620,
+          height: 400
+        }}
+        bounds="parent"
+        style={{position: "absolute"}}
+      > */}
       <section className="window">
-        <i className="fa-solid fa-window-minimize"></i>
+        <header className="window__header">
+
+        </header>
       </section>
+      {/* </Resizable> */}
     </Draggable>
   );
 }

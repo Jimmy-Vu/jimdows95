@@ -166,9 +166,23 @@
   position: absolute;
   left: 50%;
   top: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 400px;
   width: 600px;
-  background-color: red;
+  padding: 4px;
+  background-color: #c2c0c1;
+}
+.window__header {
+  height: 30px;
+  width: 100%;
+  background-color: #817F85;
+}
+.window__footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 @font-face {
@@ -180,7 +194,10 @@
 }
 
 main {
+  position: relative;
+  overflow: hidden;
   height: 100vh;
+  max-height: 100vh;
   background-color: #2E8181;
 }
 

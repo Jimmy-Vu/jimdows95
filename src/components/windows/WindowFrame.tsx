@@ -29,11 +29,29 @@ export default function WindowFrame(props: {
         minHeight={400}
         style={{ position: 'absolute', left: '30%', top: '20%' }}
       >
-        <section className="window__main">
+        <section className="window__container">
           <header className="window__header">
-            <img className="window__header__icon" src={props.icon} alt="" />
-            <h1 className="window__header__title">{props.title}</h1>
+            <div className="window__header__details">
+              <img className="window__header__icon" src={props.icon} alt="" />
+              <h1 className="window__header__title">{props.title}</h1>
+            </div>
+
+            <div className="window__header__control-buttons">
+              <button className="control-buttons__button">
+                <i className="fa-solid fa-window-minimize"></i>
+                </button>
+              <button className="control-buttons__button">
+                <i className="fa-regular fa-window-maximize"></i>
+              </button>
+              <button className="control-buttons__button">
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
           </header>
+          <main className="window__main">
+
+          </main>
+          <footer className="window__footer"></footer>
         </section>
       </Resizable>
     </Draggable >

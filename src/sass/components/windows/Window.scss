@@ -1,7 +1,7 @@
 .window {
   height: 400px;
   width: 600px;
-  padding: 4px;
+  padding: 4px 7px 6px 7px;
 
   border-top: white solid 1px;
   border-left: white solid 1px;
@@ -9,7 +9,7 @@
   border-right: black solid 2px;
   background-color: #c2c0c1;
 
-  &__main {
+  &__container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,19 +19,52 @@
 
   &__header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     height: 30px;
     width: 100%;
+    margin-bottom: 0.5rem;
     background-color: #817F85;
 
-    &__icon {
-      max-height: 95%;
+    &__details {
+      display: flex;
+      align-items: center;
     }
+
+    &__icon {
+      max-height: 28px;
+    }
+
     &__title {
       margin: 0;
       font-size: 16px;
       color: white;
     }
+
+    &__control-buttons {
+      display: flex;
+
+      .control-buttons__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 22px;
+        aspect-ratio: 1;
+        background-color: #D9D9D9;
+      }
+    }
+  }
+
+  &__main {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+
+  &__footer {
+    height: 20px;
+    width: 100%;
   }
 }

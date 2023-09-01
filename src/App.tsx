@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <main>
+      <main className="app__main">
         <DesktopIcons />
         <AboutMe />
         <Taskbar />

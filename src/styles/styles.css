@@ -165,14 +165,14 @@
 .window {
   height: 400px;
   width: 600px;
-  padding: 4px;
+  padding: 4px 7px 6px 7px;
   border-top: white solid 1px;
   border-left: white solid 1px;
   border-bottom: black solid 2px;
   border-right: black solid 2px;
   background-color: #c2c0c1;
 }
-.window__main {
+.window__container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -180,18 +180,44 @@
 }
 .window__header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 30px;
   width: 100%;
+  margin-bottom: 0.5rem;
   background-color: #817F85;
 }
+.window__header__details {
+  display: flex;
+  align-items: center;
+}
 .window__header__icon {
-  max-height: 95%;
+  max-height: 28px;
 }
 .window__header__title {
   margin: 0;
   font-size: 16px;
   color: white;
+}
+.window__header__control-buttons {
+  display: flex;
+}
+.window__header__control-buttons .control-buttons__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  aspect-ratio: 1;
+  background-color: #D9D9D9;
+}
+.window__main {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+.window__footer {
+  height: 20px;
+  width: 100%;
 }
 
 @font-face {
@@ -202,7 +228,7 @@
   font-family: "W95FA", sans-serif;
 }
 
-main {
+.app__main {
   position: relative;
   overflow: hidden;
   height: 100vh;

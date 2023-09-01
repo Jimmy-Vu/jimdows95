@@ -183,15 +183,6 @@
   width: 100%;
   background-color: #817F85;
 }
-.window__footer {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.pointer-events-none {
-  pointer-events: none;
-}
 
 @font-face {
   font-family: "W95FA";

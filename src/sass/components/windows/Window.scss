@@ -1,11 +1,8 @@
 .window {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
   height: 400px;
   width: 600px;
@@ -16,6 +13,14 @@
   border-bottom: black solid 2px;
   border-right: black solid 2px;
   background-color: #c2c0c1;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+  }
 
   &__header {
     height: 30px;
@@ -28,4 +33,8 @@
     justify-content: flex-end;
     width: 100%;
   }
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }

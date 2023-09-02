@@ -3,7 +3,8 @@ import { Resizable } from 're-resizable';
 
 export default function WindowFrame(props: {
   title: string,
-  icon: string
+  icon: string,
+  content: React.ReactNode
 }) {
 
   return (
@@ -49,7 +50,7 @@ export default function WindowFrame(props: {
             </div>
           </header>
           <main className="window__main">
-
+            {props.content}
           </main>
           <footer className="window__footer"></footer>
         </section>

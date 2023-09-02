@@ -149,16 +149,16 @@
 .desktop-icons .icon-img {
   background-color: transparent;
 }
-.desktop-icons .about-me {
+.desktop-icons .about-me-icon {
   margin-bottom: 1rem;
 }
-.desktop-icons .about-me img {
+.desktop-icons .about-me-icon img {
   width: 50px;
 }
-.desktop-icons .projects img {
+.desktop-icons .projects-icon img {
   width: 50px;
 }
-.desktop-icons .contact img {
+.desktop-icons .contact-icon img {
   max-height: 50px;
 }
 
@@ -218,6 +218,16 @@
 .window__footer {
   height: 20px;
   width: 100%;
+}
+
+.about-me {
+  padding: 1rem;
+}
+.about-me__heading {
+  font-size: 36px;
+}
+.about-me__text {
+  font-size: 20px;
 }
 
 @font-face {

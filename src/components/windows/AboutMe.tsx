@@ -21,7 +21,7 @@ export default function AboutMe() {
         </p>
         <p>Whenever I'm not writing or consuming code, you can catch me reading Brandon Sanderson novels, writing fiction, lifting weights, or messing around with electronics.</p>
         <p>I hope you enjoy exploring my little corner of the web. Please feel free to contact me through my LinkedIn, Twitter, or just like how they did it back in the 90s by sending
-          an email to contact@jimmyvu.co!
+          an email to <a style={{color: 'blue'}} href="mailto:contact@jimmyvu.co">contact@jimmyvu.co</a>!
         </p>
 
         <p>- Jimmy</p>

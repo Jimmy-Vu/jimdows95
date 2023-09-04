@@ -20,6 +20,11 @@ export default function AboutMe() {
           reading technical books, and staying up to date with modern web development with podcasts and newsletters.
         </p>
         <p>Whenever I'm not writing or consuming code, you can catch me reading Brandon Sanderson novels, writing fiction, lifting weights, or messing around with electronics.</p>
+        <p>I hope you enjoy exploring my little corner of the web. Please feel free to contact me through my LinkedIn, Twitter, or just like how they did it back in the 90s by sending
+          an email to contact@jimmyvu.co!
+        </p>
+
+        <p>- Jimmy</p>
       </section>
     </div>;
 

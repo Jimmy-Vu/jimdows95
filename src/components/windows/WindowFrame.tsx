@@ -23,12 +23,12 @@ export default function WindowFrame(props: {
           topLeft: false
         }}
         defaultSize={{
-          width: 600,
-          height: 400
+          width: 700,
+          height: 500
         }}
         minWidth={600}
         minHeight={400}
-        style={{ position: 'absolute', left: '30%', top: '20%' }}
+        style={{ position: 'absolute', left: '25%', top: '15%' }}
       >
         <section className="window__container">
           <header className="window__header">

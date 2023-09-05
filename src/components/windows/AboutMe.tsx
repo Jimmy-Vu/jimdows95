@@ -1,6 +1,10 @@
 import WindowFrame from "./WindowFrame";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { setAboutMeState, selectAboutMeState } from "../../app/appSlice";
 
 export default function AboutMe() {
+  const aboutMeState = useAppSelector(selectAboutMeState);
+
   const content =
     <div className="about-me">
       <h1 className="about-me__heading">About Me</h1>
@@ -33,6 +37,8 @@ export default function AboutMe() {
       title="About Me"
       icon="src/assets/about-me-icon.png"
       content={content}
+      state={aboutMeState}
+      setFunc={setAboutMeState}
     />
   );
 }

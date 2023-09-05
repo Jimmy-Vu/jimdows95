@@ -1,4 +1,12 @@
+import { useAppDispatch } from "../app/hooks";
+import { setAboutMeState } from "../app/appSlice";
+
 export default function DesktopIcons() {
+  const dispatch = useAppDispatch();
+
+  function handleAboutMeClick() {
+    dispatch(setAboutMeState(true));
+  }
   function handleClick(event: React.MouseEvent<HTMLElement>) {
     if (event.target && event.target instanceof HTMLElement) {
       console.log(event.target.closest('.icon')?.getAttribute('data-item'));
@@ -8,7 +16,7 @@ export default function DesktopIcons() {
   return (
     <section className="desktop-icons">
       <div data-item="about-me" className="icon about-me-icon">
-        <button id="about-me__icon-img" className="icon-img about-me__icon-img" onClick={handleClick}>
+        <button id="about-me__icon-img" className="icon-img about-me__icon-img" onClick={handleAboutMeClick}>
           <img src="src/assets/about-me-icon.png" alt="an icon of a man's head" />
         </button>
         <label htmlFor="about-me__icon-img" className="about-me__label">About Me</label>

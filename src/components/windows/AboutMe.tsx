@@ -1,5 +1,5 @@
 import WindowFrame from "./WindowFrame";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { useAppSelector } from "../../app/hooks";
 import { setAboutMeState, selectAboutMeState } from "../../app/appSlice";
 
 export default function AboutMe() {

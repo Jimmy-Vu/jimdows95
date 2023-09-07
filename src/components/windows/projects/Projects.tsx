@@ -1,6 +1,6 @@
-import WindowFrame from "./WindowFrame";
-import { useAppSelector } from "../../app/hooks";
-import { setProjectsState, selectProjectsState } from "../../app/appSlice";
+import WindowFrame from "../WindowFrame";
+import { useAppSelector } from "../../../app/hooks";
+import { setProjectsState, selectProjectsState } from "../../../app/appSlice";
 
 export default function Projects() {
   const projectsState = useAppSelector(selectProjectsState);

@@ -3,6 +3,9 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { setProjectsState, selectProjectsState } from "../../../app/appSlice";
 import { setColosseumState, setVicarusState, setJimdows95State, setNHHState } from "../../../app/projectsSlice";
 import Colosseum from "./Colosseum";
+import Vicarus from "./Vicarus";
+import Jimdows95 from "./Jimdows95";
+import NHH from "./NHH";
 
 export default function Projects() {
   const projectsState = useAppSelector(selectProjectsState);
@@ -52,11 +55,14 @@ export default function Projects() {
         title="Projects"
         icon="src/assets/open-folder-icon.png"
         content={content}
-        defaultSize={{ width: 600, height: 400 }}
+        defaultSize={{ width: 500, height: 400 }}
         state={projectsState}
         setFunc={setProjectsState}
       />
       <Colosseum />
+      <Vicarus />
+      <Jimdows95 />
+      <NHH />
     </>
   );
 

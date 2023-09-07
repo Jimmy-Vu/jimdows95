@@ -38,8 +38,8 @@ export default function WindowFrame(props: WindowFrameProps) {
           width: width,
           height: height
         }}
-        minWidth={600}
-        minHeight={400}
+        minWidth={500}
+        minHeight={300}
         style={props.state ? { position: 'absolute', left: '25%', top: '15%' } : { display: 'none' }}
       >
         <section className="window__container">

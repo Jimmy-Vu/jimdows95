@@ -1,14 +1,18 @@
 import WindowFrame from "./WindowFrame";
+import { useAppSelector } from "../../app/hooks";
+import { setAboutMeState, selectAboutMeState } from "../../app/appSlice";
 
 export default function AboutMe() {
+  const aboutMeState = useAppSelector(selectAboutMeState);
+
   const content =
     <div className="about-me">
       <h1 className="about-me__heading">About Me</h1>
       <section className="about-me__text">
-        <p>Hi there! My name is Jimmy, your next software engineer.</p>
+        <p>Hi there! My name is Jimmy, your friendly neighborhood software engineer.</p>
         <p>
           I've been a naturally curious tinkerer and problem solver since my days of youthful splendor. Yes, I was that guy who everyone came to with technical issues.
-          &#40;Someone once asked me to hack a FaceBook account. Needless to say, I definitely didn't.&#41;
+          &#40;Someone once asked me to hack a FaceBook account. Needless to say, I definitely didn't take the request.&#41;
         </p>
         <p>
           My journey in tech began when I was an IT Specialist at a cloud-based PaaS company, deploying and maintaining servers at the on-site data center.
@@ -33,6 +37,8 @@ export default function AboutMe() {
       title="About Me"
       icon="src/assets/about-me-icon.png"
       content={content}
+      state={aboutMeState}
+      setFunc={setAboutMeState}
     />
   );
 }

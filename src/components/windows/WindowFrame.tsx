@@ -1,11 +1,21 @@
 import Draggable from "react-draggable";
 import { Resizable } from 're-resizable';
+import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
+import { useAppDispatch } from "../../app/hooks";
 
 export default function WindowFrame(props: {
   title: string,
   icon: string,
-  content: React.ReactNode
+  content: React.ReactNode,
+  state: boolean,
+  setFunc: ActionCreatorWithPayload<boolean, string>
 }) {
+
+  const dispatch = useAppDispatch()
+
+  function handleClose() {
+    dispatch(props.setFunc(false));
+  }
 
   return (
     <Draggable handle=".window__header">
@@ -28,7 +38,7 @@ export default function WindowFrame(props: {
         }}
         minWidth={600}
         minHeight={400}
-        style={{ position: 'absolute', left: '25%', top: '15%' }}
+        style={props.state ? { position: 'absolute', left: '25%', top: '15%' } : { display: 'none' }}
       >
         <section className="window__container">
           <header className="window__header">
@@ -40,11 +50,11 @@ export default function WindowFrame(props: {
             <div className="window__header__control-buttons">
               <button className="control-buttons__button">
                 <i className="fa-solid fa-window-minimize"></i>
-                </button>
+              </button>
               <button className="control-buttons__button">
                 <i className="fa-regular fa-window-maximize"></i>
               </button>
-              <button className="control-buttons__button">
+              <button onClick={handleClose} className="control-buttons__button">
                 <i className="fa-solid fa-xmark"></i>
               </button>
             </div>

@@ -3,16 +3,18 @@ import { Resizable } from 're-resizable';
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 
-export default function WindowFrame(props: {
+interface WindowFrameProps {
   title: string,
   icon: string,
   content: React.ReactNode,
+  defaultSize: { width: number, height: number },
   state: boolean,
   setFunc: ActionCreatorWithPayload<boolean, string>
-}) {
+}
 
+export default function WindowFrame(props: WindowFrameProps) {
   const dispatch = useAppDispatch()
-
+  const {width, height} = props.defaultSize;
   function handleClose() {
     dispatch(props.setFunc(false));
   }
@@ -33,8 +35,8 @@ export default function WindowFrame(props: {
           topLeft: false
         }}
         defaultSize={{
-          width: 700,
-          height: 500
+          width: width,
+          height: height
         }}
         minWidth={600}
         minHeight={400}

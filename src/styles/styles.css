@@ -231,6 +231,23 @@
   font-size: 20px;
 }
 
+.projects {
+  padding: 1rem;
+}
+.projects__icons {
+  display: flex;
+}
+.projects__icons__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background-color: inherit;
+}
+.projects__icons__item:not(:first-child) {
+  margin-left: 1rem;
+}
+
 @font-face {
   font-family: "W95FA";
   src: url("../assets/fonts/W95FA.otf");

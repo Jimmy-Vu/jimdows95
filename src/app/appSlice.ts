@@ -10,8 +10,8 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  aboutMeIsOpen: true,
-  projectsIsOpen: false,
+  aboutMeIsOpen: false,
+  projectsIsOpen: true,
   contactMeIsOpen: false,
   sorryHalIsOpen: false
 }

@@ -188,6 +188,7 @@
 .window__header__details {
   display: flex;
   align-items: center;
+  margin-left: 0.3rem;
 }
 .window__header__icon {
   max-height: 28px;
@@ -199,6 +200,7 @@
 }
 .window__header__control-buttons {
   display: flex;
+  margin-right: 0.1rem;
 }
 .window__header__control-buttons .control-buttons__button {
   display: flex;

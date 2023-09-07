@@ -28,6 +28,7 @@
     &__details {
       display: flex;
       align-items: center;
+      margin-left: 0.3rem;
     }
 
     &__icon {
@@ -42,6 +43,7 @@
 
     &__control-buttons {
       display: flex;
+      margin-right: 0.1rem;
 
       .control-buttons__button {
         display: flex;

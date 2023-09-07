@@ -24,13 +24,25 @@ export const appSlice = createSlice({
     // Use the PayloadAction type to declare the contents of `action.payload`
     setAboutMeState: (state, action: PayloadAction<boolean>) => {
       state.aboutMeIsOpen = action.payload
+    },
+    setProjectsState: (state, action: PayloadAction<boolean>) => {
+      state.projectsIsOpen = action.payload
+    },
+    setContactMeState: (state, action: PayloadAction<boolean>) => {
+      state.contactMeIsOpen = action.payload
+    },
+    setSorryHalIsOpen: (state, action: PayloadAction<boolean>) => {
+      state.sorryHalIsOpen = action.payload
     }
   }
 });
 
-export const { setAboutMeState } = appSlice.actions;
+export const { setAboutMeState, setProjectsState, setContactMeState, setSorryHalIsOpen  } = appSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectAboutMeState = (state: RootState) => state.app.aboutMeIsOpen;
+export const selectProjectsState = (state: RootState) => state.app.projectsIsOpen;
+export const selectContactMeState = (state: RootState) => state.app.contactMeIsOpen;
+export const selectSorryHalState = (state: RootState) => state.app.sorryHalIsOpen;
 
 export default appSlice.reducer;

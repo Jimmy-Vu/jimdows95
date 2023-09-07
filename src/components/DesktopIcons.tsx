@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../app/hooks";
-import { setAboutMeState } from "../app/appSlice";
+import { setAboutMeState, setProjectsState, setContactMeState } from "../app/appSlice";
 
 export default function DesktopIcons() {
   const dispatch = useAppDispatch();
@@ -7,10 +7,13 @@ export default function DesktopIcons() {
   function handleAboutMeClick() {
     dispatch(setAboutMeState(true));
   }
-  function handleClick(event: React.MouseEvent<HTMLElement>) {
-    if (event.target && event.target instanceof HTMLElement) {
-      console.log(event.target.closest('.icon')?.getAttribute('data-item'));
-    }
+
+  function handleProjectsClick() {
+    dispatch(setProjectsState(true));
+  }
+
+  function handleContactMeClick() {
+    dispatch(setContactMeState(true));
   }
 
   return (
@@ -23,14 +26,14 @@ export default function DesktopIcons() {
       </div>
 
       <div data-item="projects" className="icon projects-icon">
-        <button id="projects__icon-img" className="icon-img projects__icon-img" onClick={handleClick}>
+        <button id="projects__icon-img" className="icon-img projects__icon-img" onClick={handleProjectsClick}>
           <img src="src/assets/open-folder-icon.png" alt="an icon of an opened folder with a sheet of paper popping out" />
         </button>
         <label htmlFor="projects__icon-img" className="projects__label">Projects</label>
       </div>
 
       <div data-item="contact" className="icon contact-icon">
-        <button id="contact__icon-img" className="icon-img contact__icon-img" onClick={handleClick}>
+        <button id="contact__icon-img" className="icon-img contact__icon-img" onClick={handleContactMeClick}>
           <img src="src/assets/aim-icon.png" alt="an icon of a yellow illusrated person in a walking position" />
         </button>
         <label htmlFor="contact__icon-img" className="contact__label">Contact Me</label>

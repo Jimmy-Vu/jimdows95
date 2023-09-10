@@ -7,7 +7,9 @@ export default function Colosseum() {
 
   const content =
     <div className="colosseum">
-
+      <h1>Colosseum</h1>
+      <p>A mobile responsive full stack web application for self betterment enthusiasts to find gyms of all types to improve on their physical capabilities.
+        Built with TypeScript, React, Node.js, Express.js, PostgreSQL, Sass, Redux Toolkit, Webpack, Babel, JavaScript, JWT, HTML, and CSS.</p>
     </div>;
 
   return (

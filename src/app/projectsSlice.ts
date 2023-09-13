@@ -11,7 +11,7 @@ interface ProjectsState {
 
 const initialState: ProjectsState = {
   colosseumIsOpen: false,
-  vicarusIsOpen: false,
+  vicarusIsOpen: true,
   jimdows95IsOpen: false,
   nhhIsOpen: false
 }

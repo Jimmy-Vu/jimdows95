@@ -6,7 +6,7 @@ export default function Jimdows95() {
   const jimdows95State = useAppSelector(selectJimdows95State);
 
   const content =
-    <div className="vicarus">
+    <div className="jimdows95">
 
     </div>;
 

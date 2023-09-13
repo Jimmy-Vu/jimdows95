@@ -13,7 +13,6 @@ export default function Jimdows95() {
       </section>
 
       <section className="project__links">
-        <a className="project__links__button" target="_blank" href="">Live Site</a>
         <a className="project__links__button" target="_blank" href="https://github.com/Jimmy-Vu/jimdows95">Repo</a>
       </section>
 

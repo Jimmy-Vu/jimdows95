@@ -278,6 +278,10 @@
   background-color: #D9D9D9;
   font-size: 20px;
 }
+.project__links__button:hover {
+  color: white;
+  background-color: blue;
+}
 .project__links__button:last-child {
   margin-left: 1rem;
 }

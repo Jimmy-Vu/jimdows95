@@ -54,6 +54,11 @@
 
       font-size: 20px;
 
+      &:hover {
+        color: white;
+        background-color: blue;
+      }
+
       &:last-child {
         margin-left: 1rem;
       }

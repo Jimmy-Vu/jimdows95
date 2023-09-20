@@ -9,7 +9,8 @@ interface WindowFrameProps {
   content: React.ReactNode,
   defaultSize: { width: number, height: number },
   state: boolean,
-  setFunc: ActionCreatorWithPayload<boolean, string>
+  setOpenFunc: ActionCreatorWithPayload<boolean, string>,
+  setMaxFunc: ActionCreatorWithPayload<boolean, string>,
 }
 
 export default function WindowFrame(props: WindowFrameProps) {
@@ -17,7 +18,7 @@ export default function WindowFrame(props: WindowFrameProps) {
   const {width, height} = props.defaultSize;
 
   function handleClose() {
-    dispatch(props.setFunc(false));
+    dispatch(props.setOpenFunc(false));
   }
 
   function handleMini() {

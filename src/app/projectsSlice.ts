@@ -24,7 +24,7 @@ interface ProjectsState {
 const initialState: ProjectsState = {
   colosseum: {
     colosseumIsOpen: false,
-    colosseumIsMax:false
+    colosseumIsMax: false
   },
   vicarus: {
     vicarusIsOpen: false,
@@ -73,7 +73,16 @@ export const projectsSlice = createSlice({
   }
 });
 
-export const { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } = projectsSlice.actions;
+export const {
+  setColosseumOpenState,
+  setColosseumMaxState,
+  setVicarusOpenState,
+  setVicarusMaxState,
+  setJimdows95OpenState,
+  setJimdowsMaxState,
+  setNHHOpenState,
+  setNHHMaxState
+} = projectsSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectColosseumState = (state: RootState) => state.projects.colosseum.colosseumIsOpen;

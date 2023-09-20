@@ -1,6 +1,6 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setNHHOpenState, selectNHHState } from "../../../app/projectsSlice";
+import { setNHHOpenState, setNHHMaxState, selectNHHState } from "../../../app/projectsSlice";
 
 export default function NHH() {
   const nhhState = useAppSelector(selectNHHState);
@@ -37,7 +37,8 @@ export default function NHH() {
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={nhhState}
-      setFunc={setNHHOpenState}
+      setOpenFunc={setNHHOpenState}
+      setMaxFunc={setNHHMaxState}
     />
   );
 

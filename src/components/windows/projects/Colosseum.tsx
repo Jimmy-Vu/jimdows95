@@ -1,6 +1,6 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setColosseumOpenState, selectColosseumState } from "../../../app/projectsSlice";
+import { setColosseumOpenState, setColosseumMaxState, selectColosseumState } from "../../../app/projectsSlice";
 
 export default function Colosseum() {
   const colosseumState = useAppSelector(selectColosseumState);
@@ -32,7 +32,8 @@ export default function Colosseum() {
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={colosseumState}
-      setFunc={setColosseumOpenState}
+      setOpenFunc={setColosseumOpenState}
+      setMaxFunc={setColosseumMaxState}
     />
   );
 

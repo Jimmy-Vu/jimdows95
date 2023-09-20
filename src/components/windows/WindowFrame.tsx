@@ -22,7 +22,7 @@ export default function WindowFrame(props: WindowFrameProps) {
   }
 
   function handleMax() {
-
+    dispatch(props.setMaxFunc(true));
   }
 
   return (

@@ -1,7 +1,7 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { setProjectsState, selectProjectsState } from "../../../app/appSlice";
-import { setColosseumState, setVicarusState, setJimdows95State, setNHHState } from "../../../app/projectsSlice";
+import { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } from "../../../app/projectsSlice";
 import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
 import Jimdows95 from "./Jimdows95";
@@ -12,19 +12,19 @@ export default function Projects() {
   const dispatch = useAppDispatch();
 
   function handleColosseumClick() {
-    dispatch(setColosseumState(true));
+    dispatch(setColosseumOpenState(true));
   }
 
   function handleVicarusClick() {
-    dispatch(setVicarusState(true));
+    dispatch(setVicarusOpenState(true));
   }
 
   function handleJimdows95Click() {
-    dispatch(setJimdows95State(true));
+    dispatch(setJimdows95OpenState(true));
   }
 
   function handleNHHClick() {
-    dispatch(setNHHState(true));
+    dispatch(setNHHOpenState(true));
   }
 
   const content =

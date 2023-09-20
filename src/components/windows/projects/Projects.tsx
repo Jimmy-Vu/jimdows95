@@ -1,6 +1,6 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { setProjectsState, selectProjectsState } from "../../../app/appSlice";
+import { setProjectsOpenState, selectProjectsState, setProjectsMaxState } from "../../../app/appSlice";
 import { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } from "../../../app/projectsSlice";
 import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
@@ -57,7 +57,8 @@ export default function Projects() {
         content={content}
         defaultSize={{ width: 500, height: 400 }}
         state={projectsState}
-        setFunc={setProjectsState}
+        setOpenFunc={setProjectsOpenState}
+        setMaxFunc={setProjectsMaxState}
       />
       <Colosseum />
       <Vicarus />

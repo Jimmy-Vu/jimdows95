@@ -21,7 +21,7 @@ export default function WindowFrame(props: WindowFrameProps) {
     dispatch(props.setOpenFunc(false));
   }
 
-  function handleMini() {
+  function handleMax() {
 
   }
 
@@ -56,10 +56,10 @@ export default function WindowFrame(props: WindowFrameProps) {
             </div>
 
             <div className="window__header__control-buttons">
-              <button onClick={handleMini} className="control-buttons__button">
+              <button className="control-buttons__button">
                 <i className="fa-solid fa-window-minimize"></i>
               </button>
-              <button className="control-buttons__button">
+              <button onClick={handleMax} className="control-buttons__button">
                 <i className="fa-regular fa-window-maximize"></i>
               </button>
               <button onClick={handleClose} className="control-buttons__button">

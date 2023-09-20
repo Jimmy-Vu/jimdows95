@@ -3,18 +3,26 @@ import { Resizable } from 're-resizable';
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 
-export default function WindowFrame(props: {
+interface WindowFrameProps {
   title: string,
   icon: string,
   content: React.ReactNode,
+  defaultSize: { width: number, height: number },
   state: boolean,
-  setFunc: ActionCreatorWithPayload<boolean, string>
-}) {
+  setOpenFunc: ActionCreatorWithPayload<boolean, string>,
+  setMaxFunc: ActionCreatorWithPayload<boolean, string>,
+}
 
+export default function WindowFrame(props: WindowFrameProps) {
   const dispatch = useAppDispatch()
+  const {width, height} = props.defaultSize;
 
   function handleClose() {
-    dispatch(props.setFunc(false));
+    dispatch(props.setOpenFunc(false));
+  }
+
+  function handleMax() {
+
   }
 
   return (
@@ -33,11 +41,11 @@ export default function WindowFrame(props: {
           topLeft: false
         }}
         defaultSize={{
-          width: 700,
-          height: 500
+          width: width,
+          height: height
         }}
-        minWidth={600}
-        minHeight={400}
+        minWidth={500}
+        minHeight={300}
         style={props.state ? { position: 'absolute', left: '25%', top: '15%' } : { display: 'none' }}
       >
         <section className="window__container">
@@ -51,7 +59,7 @@ export default function WindowFrame(props: {
               <button className="control-buttons__button">
                 <i className="fa-solid fa-window-minimize"></i>
               </button>
-              <button className="control-buttons__button">
+              <button onClick={handleMax} className="control-buttons__button">
                 <i className="fa-regular fa-window-maximize"></i>
               </button>
               <button onClick={handleClose} className="control-buttons__button">

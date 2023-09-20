@@ -3,17 +3,41 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../app/store'
 
 interface AppState {
-  aboutMeIsOpen: boolean,
-  projectsIsOpen: boolean,
-  contactMeIsOpen: boolean,
-  sorryHalIsOpen: boolean
+  aboutMe: {
+    aboutMeIsOpen: boolean,
+    aboutMeIsMax: boolean
+  },
+  projects: {
+    projectsIsOpen: boolean,
+    projectsIsMax: boolean
+  },
+  contactMe: {
+    contactMeIsOpen: boolean,
+    contactMeIsMax: boolean
+  },
+  sorryHal: {
+    sorryHalIsOpen: boolean,
+    sorryHalIsMax: boolean
+  }
 }
 
 const initialState: AppState = {
-  aboutMeIsOpen: true,
-  projectsIsOpen: false,
-  contactMeIsOpen: false,
-  sorryHalIsOpen: false
+  aboutMe: {
+    aboutMeIsOpen: false,
+    aboutMeIsMax: false
+  },
+  projects: {
+    projectsIsOpen: true,
+    projectsIsMax: false
+  },
+  contactMe: {
+    contactMeIsOpen: false,
+    contactMeIsMax: false
+  },
+  sorryHal: {
+    sorryHalIsOpen: false,
+    sorryHalIsMax: false
+  }
 }
 
 export const appSlice = createSlice({
@@ -22,27 +46,48 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
-    setAboutMeState: (state, action: PayloadAction<boolean>) => {
-      state.aboutMeIsOpen = action.payload
+    setAboutMeOpenState: (state, action: PayloadAction<boolean>) => {
+      state.aboutMe.aboutMeIsOpen = action.payload
     },
-    setProjectsState: (state, action: PayloadAction<boolean>) => {
-      state.projectsIsOpen = action.payload
+    setAboutMeMaxState: (state, action: PayloadAction<boolean>) => {
+      state.aboutMe.aboutMeIsMax = action.payload
     },
-    setContactMeState: (state, action: PayloadAction<boolean>) => {
-      state.contactMeIsOpen = action.payload
+    setProjectsOpenState: (state, action: PayloadAction<boolean>) => {
+      state.projects.projectsIsOpen = action.payload
     },
-    setSorryHalIsOpen: (state, action: PayloadAction<boolean>) => {
-      state.sorryHalIsOpen = action.payload
+    setProjectsMaxState: (state, action: PayloadAction<boolean>) => {
+      state.projects.projectsIsMax = action.payload
+    },
+    setContactMeOpenState: (state, action: PayloadAction<boolean>) => {
+      state.contactMe.contactMeIsOpen = action.payload
+    },
+    setContactMeMaxState: (state, action: PayloadAction<boolean>) => {
+      state.contactMe.contactMeIsMax = action.payload
+    },
+    setSorryHalOpenState: (state, action: PayloadAction<boolean>) => {
+      state.sorryHal.sorryHalIsOpen = action.payload
+    },
+    setSorryHalMaxState: (state, action: PayloadAction<boolean>) => {
+      state.sorryHal.sorryHalIsMax = action.payload
     }
   }
 });
 
-export const { setAboutMeState, setProjectsState, setContactMeState, setSorryHalIsOpen  } = appSlice.actions;
+export const {
+  setAboutMeOpenState,
+  setAboutMeMaxState,
+  setProjectsOpenState,
+  setProjectsMaxState,
+  setContactMeOpenState,
+  setContactMeMaxState,
+  setSorryHalOpenState,
+  setSorryHalMaxState
+} = appSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectAboutMeState = (state: RootState) => state.app.aboutMeIsOpen;
-export const selectProjectsState = (state: RootState) => state.app.projectsIsOpen;
-export const selectContactMeState = (state: RootState) => state.app.contactMeIsOpen;
-export const selectSorryHalState = (state: RootState) => state.app.sorryHalIsOpen;
+export const selectAboutMeState = (state: RootState) => state.app.aboutMe.aboutMeIsOpen;
+export const selectProjectsState = (state: RootState) => state.app.projects.projectsIsOpen;
+export const selectContactMeState = (state: RootState) => state.app.contactMe.contactMeIsOpen;
+export const selectSorryHalState = (state: RootState) => state.app.sorryHal.sorryHalIsOpen;
 
 export default appSlice.reducer;

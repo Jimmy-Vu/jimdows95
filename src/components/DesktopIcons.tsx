@@ -1,19 +1,19 @@
 import { useAppDispatch } from "../app/hooks";
-import { setAboutMeState, setProjectsState, setContactMeState } from "../app/appSlice";
+import { setAboutMeOpenState, setProjectsOpenState, setContactMeOpenState } from "../app/appSlice";
 
 export default function DesktopIcons() {
   const dispatch = useAppDispatch();
 
   function handleAboutMeClick() {
-    dispatch(setAboutMeState(true));
+    dispatch(setAboutMeOpenState(true));
   }
 
   function handleProjectsClick() {
-    dispatch(setProjectsState(true));
+    dispatch(setProjectsOpenState(true));
   }
 
   function handleContactMeClick() {
-    dispatch(setContactMeState(true));
+    dispatch(setContactMeOpenState(true));
   }
 
   return (

@@ -3,17 +3,41 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
 interface ProjectsState {
-  colosseumIsOpen: boolean,
-  vicarusIsOpen: boolean,
-  jimdows95IsOpen: boolean,
-  nhhIsOpen: boolean
+  colosseum: {
+    colosseumIsOpen: boolean,
+    colosseumIsMax: boolean
+  },
+  vicarus: {
+    vicarusIsOpen: boolean,
+    vicarusIsMax: boolean
+  },
+  jimdows95: {
+    jimdows95IsOpen: boolean,
+    jimdows95IsMax: boolean
+  },
+  nhh: {
+    nhhIsOpen: boolean,
+    nhhIsMax: boolean
+  }
 }
 
 const initialState: ProjectsState = {
-  colosseumIsOpen: false,
-  vicarusIsOpen: false,
-  jimdows95IsOpen: true,
-  nhhIsOpen: false
+  colosseum: {
+    colosseumIsOpen: false,
+    colosseumIsMax:false
+  },
+  vicarus: {
+    vicarusIsOpen: false,
+    vicarusIsMax: false
+  },
+  jimdows95: {
+    jimdows95IsOpen: false,
+    jimdows95IsMax: false
+  },
+  nhh: {
+    nhhIsOpen: false,
+    nhhIsMax: false
+  }
 }
 
 export const projectsSlice = createSlice({
@@ -22,27 +46,27 @@ export const projectsSlice = createSlice({
   initialState,
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
-    setColosseumState: (state, action: PayloadAction<boolean>) => {
-      state.colosseumIsOpen = action.payload
+    setColosseumOpenState: (state, action: PayloadAction<boolean>) => {
+      state.colosseum.colosseumIsOpen = action.payload
     },
-    setVicarusState: (state, action: PayloadAction<boolean>) => {
-      state.vicarusIsOpen = action.payload
+    setVicarusOpenState: (state, action: PayloadAction<boolean>) => {
+      state.vicarus.vicarusIsOpen = action.payload
     },
-    setJimdows95State: (state, action: PayloadAction<boolean>) => {
-      state.jimdows95IsOpen = action.payload
+    setJimdows95OpenState: (state, action: PayloadAction<boolean>) => {
+      state.jimdows95.jimdows95IsOpen = action.payload
     },
-    setNHHState: (state, action: PayloadAction<boolean>) => {
-      state.nhhIsOpen = action.payload
+    setNHHOpenState: (state, action: PayloadAction<boolean>) => {
+      state.nhh.nhhIsOpen = action.payload
     }
   }
 });
 
-export const { setColosseumState, setVicarusState, setJimdows95State, setNHHState } = projectsSlice.actions;
+export const { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } = projectsSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectColosseumState = (state: RootState) => state.projects.colosseumIsOpen;
-export const selectVicarusState = (state: RootState) => state.projects.vicarusIsOpen;
-export const selectJimdows95State = (state: RootState) => state.projects.jimdows95IsOpen;
-export const selectNHHState = (state: RootState) => state.projects.nhhIsOpen;
+export const selectColosseumState = (state: RootState) => state.projects.colosseum.colosseumIsOpen;
+export const selectVicarusState = (state: RootState) => state.projects.vicarus.vicarusIsOpen;
+export const selectJimdows95State = (state: RootState) => state.projects.jimdows95.jimdows95IsOpen;
+export const selectNHHState = (state: RootState) => state.projects.nhh.nhhIsOpen;
 
 export default projectsSlice.reducer;

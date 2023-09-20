@@ -15,8 +15,13 @@ interface WindowFrameProps {
 export default function WindowFrame(props: WindowFrameProps) {
   const dispatch = useAppDispatch()
   const {width, height} = props.defaultSize;
+
   function handleClose() {
     dispatch(props.setFunc(false));
+  }
+
+  function handleMini() {
+
   }
 
   return (
@@ -50,7 +55,7 @@ export default function WindowFrame(props: WindowFrameProps) {
             </div>
 
             <div className="window__header__control-buttons">
-              <button className="control-buttons__button">
+              <button onClick={handleMini} className="control-buttons__button">
                 <i className="fa-solid fa-window-minimize"></i>
               </button>
               <button className="control-buttons__button">

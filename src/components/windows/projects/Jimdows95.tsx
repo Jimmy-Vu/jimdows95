@@ -9,7 +9,7 @@ export default function Jimdows95() {
     <div id="jimdows95" className="project__main">
       <section className="project__hero">
         <h1 className="project__hero__heading">Jimdows95</h1>
-        <img className="project__hero__image" src="src/components/windows/projects/assets/jimdows95-combo-mockup-workfiles.png" alt="" />
+        <img className="project__hero__image" src="src/components/windows/projects/assets/jimdows95-combo-mockup-workfiles.png" alt="image of jimdows95 on a laptop and smart phone" />
       </section>
 
       <section className="project__links">

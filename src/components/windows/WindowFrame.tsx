@@ -8,7 +8,7 @@ interface WindowFrameProps {
   icon: string,
   content: React.ReactNode,
   defaultSize: { width: number, height: number },
-  state: boolean,
+  state: {openState: boolean, maxState: boolean},
   setOpenFunc: ActionCreatorWithPayload<boolean, string>,
   setMaxFunc: ActionCreatorWithPayload<boolean, string>,
 }
@@ -16,6 +16,7 @@ interface WindowFrameProps {
 export default function WindowFrame(props: WindowFrameProps) {
   const dispatch = useAppDispatch()
   const {width, height} = props.defaultSize;
+  const state = props.state;
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
@@ -28,7 +29,7 @@ export default function WindowFrame(props: WindowFrameProps) {
   return (
     <Draggable handle=".window__header">
       <Resizable
-        className="window"
+        className='window'
         handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
         enable={{
           top: false,
@@ -41,12 +42,12 @@ export default function WindowFrame(props: WindowFrameProps) {
           topLeft: false
         }}
         defaultSize={{
-          width: width,
+          width: state.maxState ? window.innerWidth : width,
           height: height
         }}
         minWidth={500}
         minHeight={300}
-        style={props.state ? { position: 'absolute', left: '25%', top: '15%' } : { display: 'none' }}
+        style={state.openState ? { position: 'absolute', left: '25%', top: '15%' } : { display: 'none' }}
       >
         <section className="window__container">
           <header className="window__header">

@@ -1,6 +1,6 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { setProjectsOpenState, selectProjectsState, setProjectsMaxState } from "../../../app/appSlice";
+import { setProjectsOpenState, selectProjectsOpenState, setProjectsMaxState, selectProjectsMaxState } from "../../../app/appSlice";
 import { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } from "../../../app/projectsSlice";
 import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
@@ -8,7 +8,8 @@ import Jimdows95 from "./Jimdows95";
 import NHH from "./NHH";
 
 export default function Projects() {
-  const projectsState = useAppSelector(selectProjectsState);
+  const projectsOpenState = useAppSelector(selectProjectsOpenState);
+  const projectMaxState = useAppSelector(selectProjectsMaxState);
   const dispatch = useAppDispatch();
 
   function handleColosseumClick() {
@@ -56,7 +57,7 @@ export default function Projects() {
         icon="src/assets/open-folder-icon.png"
         content={content}
         defaultSize={{ width: 500, height: 400 }}
-        state={projectsState}
+        state={{ openState: projectsOpenState, maxState: projectMaxState }}
         setOpenFunc={setProjectsOpenState}
         setMaxFunc={setProjectsMaxState}
       />

@@ -1,9 +1,10 @@
 import WindowFrame from "./WindowFrame";
 import { useAppSelector } from "../../app/hooks";
-import { setAboutMeOpenState, setAboutMeMaxState, selectAboutMeState } from "../../app/appSlice";
+import { setAboutMeOpenState, setAboutMeMaxState, selectAboutMeOpenState, selectAboutMeMaxState } from "../../app/appSlice";
 
 export default function AboutMe() {
-  const aboutMeState = useAppSelector(selectAboutMeState);
+  const aboutMeOpenState = useAppSelector(selectAboutMeOpenState);
+  const aboutMeMaxState = useAppSelector(selectAboutMeMaxState);
 
   const content =
     <div className="about-me">
@@ -38,7 +39,7 @@ export default function AboutMe() {
       icon="src/assets/about-me-icon.png"
       content={content}
       defaultSize={{ width: 700, height: 500 }}
-      state={aboutMeState}
+      state={{ openState: aboutMeOpenState, maxState: aboutMeMaxState }}
       setOpenFunc={setAboutMeOpenState}
       setMaxFunc={setAboutMeMaxState}
     />

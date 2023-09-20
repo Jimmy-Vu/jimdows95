@@ -1,6 +1,6 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setVicarusState, selectVicarusState } from "../../../app/projectsSlice";
+import { setVicarusOpenState, selectVicarusState } from "../../../app/projectsSlice";
 
 export default function Vicarus() {
   const vicarusState = useAppSelector(selectVicarusState);
@@ -35,7 +35,7 @@ export default function Vicarus() {
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={vicarusState}
-      setFunc={setVicarusState}
+      setFunc={setVicarusOpenState}
     />
   );
 

@@ -49,14 +49,26 @@ export const projectsSlice = createSlice({
     setColosseumOpenState: (state, action: PayloadAction<boolean>) => {
       state.colosseum.colosseumIsOpen = action.payload
     },
+    setColosseumMaxState: (state, action: PayloadAction<boolean>) => {
+      state.colosseum.colosseumIsMax = action.payload
+    },
     setVicarusOpenState: (state, action: PayloadAction<boolean>) => {
       state.vicarus.vicarusIsOpen = action.payload
+    },
+    setVicarusMaxState: (state, action: PayloadAction<boolean>) => {
+      state.vicarus.vicarusIsMax = action.payload
     },
     setJimdows95OpenState: (state, action: PayloadAction<boolean>) => {
       state.jimdows95.jimdows95IsOpen = action.payload
     },
+    setJimdowsMaxState: (state, action: PayloadAction<boolean>) => {
+      state.jimdows95.jimdows95IsMax = action.payload
+    },
     setNHHOpenState: (state, action: PayloadAction<boolean>) => {
       state.nhh.nhhIsOpen = action.payload
+    },
+    setNHHMaxState: (state, action: PayloadAction<boolean>) => {
+      state.nhh.nhhIsMax = action.payload
     }
   }
 });

@@ -1,6 +1,6 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setJimdows95State, selectJimdows95State } from "../../../app/projectsSlice";
+import { setJimdows95OpenState, selectJimdows95State } from "../../../app/projectsSlice";
 
 export default function Jimdows95() {
   const jimdows95State = useAppSelector(selectJimdows95State);
@@ -44,7 +44,7 @@ export default function Jimdows95() {
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={jimdows95State}
-      setFunc={setJimdows95State}
+      setFunc={setJimdows95OpenState}
     />
   );
 

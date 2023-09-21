@@ -2,78 +2,158 @@ import Draggable from "react-draggable";
 import { Resizable } from 're-resizable';
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
+import { useState } from "react";
 
 interface WindowFrameProps {
   title: string,
   icon: string,
   content: React.ReactNode,
   defaultSize: { width: number, height: number },
-  state: {openState: boolean, maxState: boolean},
+  state: { openState: boolean, maxState: boolean },
   setOpenFunc: ActionCreatorWithPayload<boolean, string>,
   setMaxFunc: ActionCreatorWithPayload<boolean, string>,
 }
 
 export default function WindowFrame(props: WindowFrameProps) {
   const dispatch = useAppDispatch()
-  const {width, height} = props.defaultSize;
-  const state = props.state;
+  const { width, height } = props.defaultSize;
+  const { openState, maxState } = props.state;
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [size, setSize] = useState({ width: `${width}`, height: `${height}` });
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
   }
 
   function handleMax() {
+    setSize({ width: '100%', height: `${window.innerHeight - 30}` })
+    setIsDisabled(true);
     dispatch(props.setMaxFunc(true));
   }
 
-  return (
-    <Draggable handle=".window__header">
-      <Resizable
-        className='window'
-        handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
-        enable={{
-          top: false,
-          right: false,
-          bottom: false,
-          left: false,
-          topRight: false,
-          bottomRight: true,
-          bottomLeft: false,
-          topLeft: false
-        }}
-        defaultSize={{
-          width: state.maxState ? window.innerWidth : width,
-          height: height
-        }}
-        minWidth={500}
-        minHeight={300}
-        style={state.openState ? { position: 'absolute', left: '25%', top: '15%' } : { display: 'none' }}
-      >
-        <section className="window__container">
-          <header className="window__header">
-            <div className="window__header__details">
-              <img className="window__header__icon" src={props.icon} alt="" />
-              <h1 className="window__header__title">{props.title}</h1>
-            </div>
+  function handleMin() {
+    setSize({ width: `${width}`, height: `${height}` })
+    setIsDisabled(false);
+    dispatch(props.setMaxFunc(false))
+  }
 
-            <div className="window__header__control-buttons">
-              <button className="control-buttons__button">
-                <i className="fa-solid fa-window-minimize"></i>
-              </button>
-              <button onClick={handleMax} className="control-buttons__button">
-                <i className="fa-regular fa-window-maximize"></i>
-              </button>
-              <button onClick={handleClose} className="control-buttons__button">
-                <i className="fa-solid fa-xmark"></i>
-              </button>
-            </div>
-          </header>
-          <main className="window__main">
-            {props.content}
-          </main>
-          <footer className="window__footer"></footer>
-        </section>
-      </Resizable>
-    </Draggable >
-  );
+
+
+  const handleResizeStop = (e, direction, ref, d) => {
+    // Update the width and height based on the change in dimensions (d.width and d.height)
+    setSize({
+      width: size.width + d.width,
+      height: size.height + d.height,
+    });
+  };
+
+  if (maxState) {
+    return (
+      <Draggable position={{x: 0, y: 0}} disabled={isDisabled} handle=".window__header">
+        <Resizable
+          className='window'
+          handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
+          enable={{
+            top: false,
+            right: false,
+            bottom: false,
+            left: false,
+            topRight: false,
+            bottomRight: true,
+            bottomLeft: false,
+            topLeft: false
+          }}
+          size={size} // Use the managed size state
+          onResizeStop={handleResizeStop} // Handle the resize event
+          minWidth={500}
+          minHeight={300}
+          style={
+            openState ?
+              maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
+                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
+              : { display: 'none' } // Closed
+          }
+        >
+          <section className="window__container">
+            <header className="window__header">
+              <div className="window__header__details">
+                <img className="window__header__icon" src={props.icon} alt="" />
+                <h1 className="window__header__title">{props.title}</h1>
+              </div>
+
+              <div className="window__header__control-buttons">
+                <button className="control-buttons__button">
+                  <i className="fa-solid fa-window-minimize"></i>
+                </button>
+                <button onClick={handleMin} className="control-buttons__button">
+                  <i className="fa-regular fa-window-restore"></i>
+                </button>
+                <button onClick={handleClose} className="control-buttons__button">
+                  <i className="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </header>
+            <main className="window__main">
+              {props.content}
+            </main>
+            <footer className="window__footer"></footer>
+          </section>
+        </Resizable>
+      </Draggable >
+    );
+  } else {
+    return (
+      <Draggable disabled={isDisabled} handle=".window__header">
+        <Resizable
+          className='window'
+          handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
+          enable={{
+            top: false,
+            right: false,
+            bottom: false,
+            left: false,
+            topRight: false,
+            bottomRight: true,
+            bottomLeft: false,
+            topLeft: false
+          }}
+          size={size} // Use the managed size state
+          onResizeStop={handleResizeStop} // Handle the resize event
+          minWidth={500}
+          minHeight={300}
+          style={
+            openState ?
+              maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
+                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
+              : { display: 'none' } // Closed
+          }
+        >
+          <section className="window__container">
+            <header className="window__header">
+              <div className="window__header__details">
+                <img className="window__header__icon" src={props.icon} alt="" />
+                <h1 className="window__header__title">{props.title}</h1>
+              </div>
+
+              <div className="window__header__control-buttons">
+                <button className="control-buttons__button">
+                  <i className="fa-solid fa-window-minimize"></i>
+                </button>
+                <button onClick={handleMax} className="control-buttons__button">
+                  <i className="fa-regular fa-window-maximize"></i>
+                </button>
+                <button onClick={handleClose} className="control-buttons__button">
+                  <i className="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </header>
+            <main className="window__main">
+              {props.content}
+            </main>
+            <footer className="window__footer"></footer>
+          </section>
+        </Resizable>
+      </Draggable >
+    );
+  }
 }

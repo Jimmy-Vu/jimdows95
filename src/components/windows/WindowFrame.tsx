@@ -19,27 +19,27 @@ export default function WindowFrame(props: WindowFrameProps) {
   const { width, height } = props.defaultSize;
   const { openState, maxState } = props.state;
   const [isDisabled, setIsDisabled] = useState(false);
-  const [size, setSize] = useState({ width: `${width}`, height: `${height}` });
+  const [size, setSize] = useState({ width: width, height: height });
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
   }
 
   function handleMax() {
-    setSize({ width: '100%', height: `${window.innerHeight - 30}` })
+    setSize({ width: window.innerWidth, height: window.innerHeight - 30 })
     setIsDisabled(true);
     dispatch(props.setMaxFunc(true));
   }
 
   function handleMin() {
-    setSize({ width: `${width}`, height: `${height}` })
+    setSize({ width: width, height: height })
     setIsDisabled(false);
     dispatch(props.setMaxFunc(false))
   }
 
 
 
-  const handleResizeStop = (e, direction, ref, d) => {
+  const handleResizeStop = (e, direction, ref, d: { width: number; height: number; }) => {
     // Update the width and height based on the change in dimensions (d.width and d.height)
     setSize({
       width: size.width + d.width,

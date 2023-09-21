@@ -39,17 +39,18 @@ export default function WindowFrame(props: WindowFrameProps) {
 
 
 
-  const handleResizeStop = (e, direction, ref, d: { width: number; height: number; }) => {
+  // @ts-expect-error: The onResizeStop property requires the `e`, `direction`, and `ref` parameters even though they don't get used in the function
+  function handleResizeStop(e, direction, ref, d: { width: number; height: number; }) {
     // Update the width and height based on the change in dimensions (d.width and d.height)
     setSize({
       width: size.width + d.width,
       height: size.height + d.height,
     });
-  };
+  }
 
   if (maxState) {
     return (
-      <Draggable position={{x: 0, y: 0}} disabled={isDisabled} handle=".window__header">
+      <Draggable position={{ x: 0, y: 0 }} disabled={isDisabled} handle=".window__header">
         <Resizable
           className='window'
           handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}

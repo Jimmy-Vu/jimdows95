@@ -1,9 +1,10 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setColosseumOpenState, setColosseumMaxState, selectColosseumState } from "../../../app/projectsSlice";
+import { setColosseumOpenState, setColosseumMaxState, selectColosseumOpenState, selectColosseumMaxState } from "../../../app/projectsSlice";
 
 export default function Colosseum() {
-  const colosseumState = useAppSelector(selectColosseumState);
+  const colosseumOpenState = useAppSelector(selectColosseumOpenState);
+  const colosseumMaxState = useAppSelector(selectColosseumMaxState);
 
   const content =
     <div id="colosseum" className="project__main">
@@ -31,7 +32,7 @@ export default function Colosseum() {
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}
-      state={colosseumState}
+      state={{ openState: colosseumOpenState, maxState: colosseumMaxState }}
       setOpenFunc={setColosseumOpenState}
       setMaxFunc={setColosseumMaxState}
     />

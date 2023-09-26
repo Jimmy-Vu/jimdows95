@@ -1,9 +1,10 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setVicarusOpenState, setVicarusMaxState, selectVicarusState } from "../../../app/projectsSlice";
+import { setVicarusOpenState, setVicarusMaxState, selectVicarusOpenState, selectVicarusMaxState } from "../../../app/projectsSlice";
 
 export default function Vicarus() {
-  const vicarusState = useAppSelector(selectVicarusState);
+  const vicarusOpenState = useAppSelector(selectVicarusOpenState);
+  const vicarusMaxState = useAppSelector(selectVicarusMaxState);
 
   const content =
     <div id="vicarus" className="project__main">
@@ -34,7 +35,7 @@ export default function Vicarus() {
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}
-      state={vicarusState}
+      state={{openState: vicarusOpenState, maxState: vicarusMaxState}}
       setOpenFunc={setVicarusOpenState}
       setMaxFunc={setVicarusMaxState}
     />

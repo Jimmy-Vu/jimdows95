@@ -1,9 +1,10 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setJimdows95OpenState, setJimdowsMaxState, selectJimdows95State } from "../../../app/projectsSlice";
+import { setJimdows95OpenState, setJimdowsMaxState, selectJimdows95OpenState, selectJimdows95MaxState } from "../../../app/projectsSlice";
 
 export default function Jimdows95() {
-  const jimdows95State = useAppSelector(selectJimdows95State);
+  const jimdows95OpenState = useAppSelector(selectJimdows95OpenState);
+  const jimdows95MaxState = useAppSelector(selectJimdows95MaxState);
 
   const content =
     <div id="jimdows95" className="project__main">
@@ -43,7 +44,7 @@ export default function Jimdows95() {
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}
-      state={jimdows95State}
+      state={{openState: jimdows95OpenState, maxState: jimdows95MaxState}}
       setOpenFunc={setJimdows95OpenState}
       setMaxFunc={setJimdowsMaxState}
     />

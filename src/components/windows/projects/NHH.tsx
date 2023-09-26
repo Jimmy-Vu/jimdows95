@@ -1,9 +1,10 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setNHHOpenState, setNHHMaxState, selectNHHState } from "../../../app/projectsSlice";
+import { setNHHOpenState, setNHHMaxState, selectNHHOpenState, selectNHHMaxState } from "../../../app/projectsSlice";
 
 export default function NHH() {
-  const nhhState = useAppSelector(selectNHHState);
+  const nhhOpenState = useAppSelector(selectNHHOpenState);
+  const nhhMaxState = useAppSelector(selectNHHMaxState);
 
   const content =
     <div id="NHH" className="project__main">
@@ -36,7 +37,7 @@ export default function NHH() {
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}
-      state={nhhState}
+      state={{openState: nhhOpenState, maxState: nhhMaxState}}
       setOpenFunc={setNHHOpenState}
       setMaxFunc={setNHHMaxState}
     />

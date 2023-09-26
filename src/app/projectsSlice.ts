@@ -85,9 +85,16 @@ export const {
 } = projectsSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectColosseumState = (state: RootState) => state.projects.colosseum.colosseumIsOpen;
-export const selectVicarusState = (state: RootState) => state.projects.vicarus.vicarusIsOpen;
-export const selectJimdows95State = (state: RootState) => state.projects.jimdows95.jimdows95IsOpen;
-export const selectNHHState = (state: RootState) => state.projects.nhh.nhhIsOpen;
+export const selectColosseumOpenState = (state: RootState) => state.projects.colosseum.colosseumIsOpen;
+export const selectColosseumMaxState = (state: RootState) => state.projects.colosseum.colosseumIsMax;
+
+export const selectVicarusOpenState = (state: RootState) => state.projects.vicarus.vicarusIsOpen;
+export const selectVicarusMaxState = (state: RootState) => state.projects.vicarus.vicarusIsMax;
+
+export const selectJimdows95OpenState = (state: RootState) => state.projects.jimdows95.jimdows95IsOpen;
+export const selectJimdows95MaxState = (state: RootState) => state.projects.jimdows95.jimdows95IsMax;
+
+export const selectNHHOpenState = (state: RootState) => state.projects.nhh.nhhIsOpen;
+export const selectNHHMaxState = (state: RootState) => state.projects.nhh.nhhIsMax;
 
 export default projectsSlice.reducer;

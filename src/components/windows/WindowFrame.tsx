@@ -40,7 +40,6 @@ export default function WindowFrame(props: WindowFrameProps) {
   }
 
   function handleClick() {
-    console.log('id:', props.id);
     dispatch(setActiveWindow(props.id));
   }
 

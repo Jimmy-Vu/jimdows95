@@ -14,6 +14,7 @@ export default function ContactMe() {
   return (
     <WindowFrame
       title="Contact Me"
+      id="contactMe"
       icon="src/assets/aim-icon.png"
       content={content}
       defaultSize={{ width: 600, height: 400 }}

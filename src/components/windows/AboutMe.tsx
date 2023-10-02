@@ -36,13 +36,13 @@ export default function AboutMe() {
   return (
     <WindowFrame
       title="About Me"
+      id="aboutMe"
       icon="src/assets/about-me-icon.png"
       content={content}
       defaultSize={{ width: 700, height: 500 }}
       state={{ openState: aboutMeOpenState, maxState: aboutMeMaxState }}
       setOpenFunc={setAboutMeOpenState}
       setMaxFunc={setAboutMeMaxState}
-      id={'aboutMe'}
     />
   );
 }

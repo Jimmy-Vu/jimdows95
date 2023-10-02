@@ -8,7 +8,7 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  active: 'temp',
+  active: 'aboutMe',
   windows: ['aboutMe', 'projects', 'contactMe', 'sorryHal', 'colosseum', 'vicarus', 'jimdows95', 'nhh']
 }
 

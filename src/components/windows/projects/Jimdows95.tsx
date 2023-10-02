@@ -41,6 +41,7 @@ export default function Jimdows95() {
   return (
     <WindowFrame
       title="Jimdows95"
+      id="jimdows95"
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}

@@ -60,6 +60,7 @@ export default function Projects() {
         state={{ openState: projectsOpenState, maxState: projectMaxState }}
         setOpenFunc={setProjectsOpenState}
         setMaxFunc={setProjectsMaxState}
+        id={'projects'}
       />
       <Colosseum />
       <Vicarus />

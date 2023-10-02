@@ -42,6 +42,7 @@ export default function AboutMe() {
       state={{ openState: aboutMeOpenState, maxState: aboutMeMaxState }}
       setOpenFunc={setAboutMeOpenState}
       setMaxFunc={setAboutMeMaxState}
+      id={'aboutMe'}
     />
   );
 }

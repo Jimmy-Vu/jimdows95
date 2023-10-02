@@ -32,6 +32,7 @@ export default function Vicarus() {
   return (
     <WindowFrame
       title="Vincent&Icarus"
+      id={'vicarus'}
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}

@@ -19,8 +19,15 @@ export const zIndexSlice = createSlice({
   reducers: {
     setActiveWindow: (state, action: PayloadAction<string>) => {
       state.active = action.payload;
-      state.windows.splice(state.active.indexOf(action.payload), 1);
-      state.windows.push(action.payload);
+      const index = state.active.indexOf(action.payload);
+      if (index !== -1) {
+        // Remove the item from its current position
+        state.windows.splice(index, 1);
+        // Add it to the end to make it the active window
+        state.windows.push(action.payload);
+        // Update the active property
+        state.active = action.payload;
+      }
     }
   }
 })
@@ -29,6 +36,7 @@ export const {
   setActiveWindow
 } = zIndexSlice.actions;
 
+export const selectActive = (state: RootState) => state.zIndexes.active;
 export const selectWindows = (state: RootState) => state.zIndexes.windows;
 
 export default zIndexSlice.reducer;

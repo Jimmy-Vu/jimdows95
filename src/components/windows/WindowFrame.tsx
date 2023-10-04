@@ -14,6 +14,7 @@ interface WindowFrameProps {
   setOpenFunc: ActionCreatorWithPayload<boolean, string>,
   setMaxFunc: ActionCreatorWithPayload<boolean, string>,
   id: string
+  zIdx: number
 }
 
 export default function WindowFrame(props: WindowFrameProps) {

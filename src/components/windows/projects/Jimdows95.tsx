@@ -1,10 +1,12 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setJimdows95OpenState, setJimdowsMaxState, selectJimdows95OpenState, selectJimdows95MaxState } from "../../../app/projectsSlice";
+import ZIndexCheck from "../lib/zIndexCheck";
 
 export default function Jimdows95() {
   const jimdows95OpenState = useAppSelector(selectJimdows95OpenState);
   const jimdows95MaxState = useAppSelector(selectJimdows95MaxState);
+  const zIdx = ZIndexCheck('jimdows95');
 
   const content =
     <div id="jimdows95" className="project__main">
@@ -42,6 +44,7 @@ export default function Jimdows95() {
     <WindowFrame
       title="Jimdows95"
       id="jimdows95"
+      zIdx={zIdx}
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}

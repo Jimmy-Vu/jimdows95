@@ -8,7 +8,7 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  active: 'aboutMe',
+  active: 'temp',
   windows: ['aboutMe', 'projects', 'contactMe', 'sorryHal', 'colosseum', 'vicarus', 'jimdows95', 'nhh']
 }
 
@@ -18,8 +18,7 @@ export const zIndexSlice = createSlice({
   initialState,
   reducers: {
     setActiveWindow: (state, action: PayloadAction<string>) => {
-      state.active = action.payload;
-      const index = state.active.indexOf(action.payload);
+      const index = state.windows.indexOf(action.payload);
       if (index !== -1) {
         // Remove the item from its current position
         state.windows.splice(index, 1);

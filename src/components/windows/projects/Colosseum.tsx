@@ -29,6 +29,7 @@ export default function Colosseum() {
   return (
     <WindowFrame
       title="Colosseum"
+      id="colosseum"
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}

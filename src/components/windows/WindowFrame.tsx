@@ -39,8 +39,11 @@ export default function WindowFrame(props: WindowFrameProps) {
     dispatch(props.setMaxFunc(false))
   }
 
-  function handleClick() {
-    dispatch(setActiveWindow(props.id));
+  function handleClick(event: React.MouseEvent<HTMLDivElement>) {
+    const target = event.target as HTMLDivElement;
+    if (target.closest('button')?.className !== 'projects__icons__item') {
+      dispatch(setActiveWindow(props.id));
+    }
   }
 
   // @ts-expect-error: The onResizeStop property requires the `e`, `direction`, and `ref` parameters even though they don't get used in the function

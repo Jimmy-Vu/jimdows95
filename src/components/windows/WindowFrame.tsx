@@ -134,7 +134,7 @@ export default function WindowFrame(props: WindowFrameProps) {
             style={
               openState ?
                 maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
-                  : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
+                  : { position: 'absolute', left: '25%', top: '15%', zIndex: props.zIdx } // Open but not maximized
                 : { display: 'none' } // Closed
             }
           >

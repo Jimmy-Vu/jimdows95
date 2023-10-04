@@ -61,14 +61,14 @@ export default function Projects() {
     <>
       <WindowFrame
         title="Projects"
+        id={'projects'}
+        zIdx={zIdx}
         icon="src/assets/open-folder-icon.png"
         content={content}
         defaultSize={{ width: 500, height: 400 }}
         state={{ openState: projectsOpenState, maxState: projectMaxState }}
         setOpenFunc={setProjectsOpenState}
         setMaxFunc={setProjectsMaxState}
-        id={'projects'}
-        zIdx={zIdx}
       />
       <Colosseum />
       <Vicarus />

@@ -32,6 +32,7 @@ export default function WindowFrame(props: WindowFrameProps) {
     setSize({ width: window.innerWidth, height: window.innerHeight - 30 })
     setIsDisabled(true);
     dispatch(props.setMaxFunc(true));
+    dispatch(setActiveWindow(props.id));
   }
 
   function handleMin() {
@@ -78,8 +79,8 @@ export default function WindowFrame(props: WindowFrameProps) {
           minHeight={300}
           style={
             openState ?
-              maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
-                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
+              maxState ? { position: 'absolute', left: '0', top: '0', zIndex: props.zIdx } // Maximized
+                : { position: 'absolute', left: '25%', top: '15%'} // Open but not maximized
               : { display: 'none' } // Closed
           }
         >

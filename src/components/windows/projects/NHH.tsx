@@ -1,9 +1,12 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
-import { setNHHOpenState, setNHHMaxState, selectNHHState } from "../../../app/projectsSlice";
+import { setNHHOpenState, setNHHMaxState, selectNHHOpenState, selectNHHMaxState } from "../../../app/projectsSlice";
+import ZIndexCheck from "../lib/zIndexCheck";
 
 export default function NHH() {
-  const nhhState = useAppSelector(selectNHHState);
+  const nhhOpenState = useAppSelector(selectNHHOpenState);
+  const nhhMaxState = useAppSelector(selectNHHMaxState);
+  const zIdx = ZIndexCheck('nhh');
 
   const content =
     <div id="NHH" className="project__main">
@@ -33,10 +36,12 @@ export default function NHH() {
   return (
     <WindowFrame
       title="New Horizon Hub"
+      id="nhh"
+      zIdx={zIdx}
       icon="src/assets/open-folder-icon.png"
       content={content}
       defaultSize={{ width: 500, height: 600 }}
-      state={nhhState}
+      state={{openState: nhhOpenState, maxState: nhhMaxState}}
       setOpenFunc={setNHHOpenState}
       setMaxFunc={setNHHMaxState}
     />

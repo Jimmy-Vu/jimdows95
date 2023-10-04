@@ -85,9 +85,16 @@ export const {
 } = appSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectAboutMeState = (state: RootState) => state.app.aboutMe.aboutMeIsOpen;
-export const selectProjectsState = (state: RootState) => state.app.projects.projectsIsOpen;
-export const selectContactMeState = (state: RootState) => state.app.contactMe.contactMeIsOpen;
-export const selectSorryHalState = (state: RootState) => state.app.sorryHal.sorryHalIsOpen;
+export const selectAboutMeOpenState = (state: RootState) => state.app.aboutMe.aboutMeIsOpen;
+export const selectAboutMeMaxState = (state: RootState) => state.app.aboutMe.aboutMeIsMax;
+
+export const selectProjectsOpenState = (state: RootState) => state.app.projects.projectsIsOpen;
+export const selectProjectsMaxState = (state: RootState) => state.app.projects.projectsIsMax;
+
+export const selectContactMeOpenState = (state: RootState) => state.app.contactMe.contactMeIsOpen;
+export const selectContactMeMaxState = (state: RootState) => state.app.contactMe.contactMeIsMax;
+
+export const selectSorryHalOpenState = (state: RootState) => state.app.sorryHal.sorryHalIsOpen;
+export const selectSorryHalmaxState = (state: RootState) => state.app.sorryHal.sorryHalIsMax;
 
 export default appSlice.reducer;

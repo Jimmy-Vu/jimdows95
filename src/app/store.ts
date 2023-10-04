@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import appSlice from "./appSlice";
 import projectsSlice from "./projectsSlice";
+import zIndexSlice from "./zIndexSlice";
 
 export const store = configureStore({
   reducer: {
     app: appSlice,
-    projects: projectsSlice
+    projects: projectsSlice,
+    zIndexes: zIndexSlice
   },
 });
 

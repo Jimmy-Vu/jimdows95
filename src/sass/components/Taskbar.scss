@@ -1,6 +1,7 @@
 .taskbar {
   position: absolute;
   bottom: 0;
+  z-index: 98;
 
   display: flex;
   justify-content: space-between;

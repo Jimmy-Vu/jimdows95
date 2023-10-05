@@ -1,4 +1,4 @@
-import WindowFrame from "./WindowFrame";
+import ErrorFrame from "./ErrorFrame";
 import { useAppSelector } from "../../app/hooks";
 import { setSorryHalOpenState, setSorryHalMaxState, selectSorryHalOpenState, selectSorryHalMaxState } from "../../app/appSlice";
 import ZIndexCheck from "./lib/ZIndexCheck";
@@ -15,14 +15,14 @@ export default function SorryHal() {
     </div>;
 
   return (
-    <WindowFrame
+    <ErrorFrame
       title="Error!"
       id="sorryHal"
       zIdx={zIdx}
       icon=""
       content={content}
       defaultSize={{ width: 600, height: 400 }}
-      state={{ openState: sorryHalOpenState, maxState: sorryHalMaxState }}
+      state={{ openState: sorryHalOpenState}}
       setOpenFunc={setSorryHalOpenState}
       setMaxFunc={setSorryHalMaxState}
     />

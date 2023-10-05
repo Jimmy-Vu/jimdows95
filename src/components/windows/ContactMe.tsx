@@ -1,7 +1,7 @@
 import WindowFrame from "./WindowFrame";
 import { useAppSelector } from "../../app/hooks";
 import { setContactMeOpenState, setContactMeMaxState, selectContactMeOpenState, selectContactMeMaxState } from "../../app/appSlice";
-import ZIndexCheck from "./lib/zIndexCheck";
+import ZIndexCheck from "./lib/ZIndexCheck";
 
 export default function ContactMe() {
   const contactMeOpenState = useAppSelector(selectContactMeOpenState);

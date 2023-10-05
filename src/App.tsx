@@ -3,6 +3,7 @@ import DesktopIcons from "./components/DesktopIcons";
 import AboutMe from "./components/windows/AboutMe";
 import Projects from "./components/windows/projects/Projects";
 import ContactMe from "./components/windows/ContactMe";
+import SorryHal from "./components/windows/sorryHal";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <AboutMe />
         <Projects />
         <ContactMe />
+        <SorryHal />
         <Taskbar />
       </main>
     </>

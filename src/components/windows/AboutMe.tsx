@@ -1,7 +1,7 @@
 import WindowFrame from "./WindowFrame";
 import { useAppSelector } from "../../app/hooks";
 import { setAboutMeOpenState, setAboutMeMaxState, selectAboutMeOpenState, selectAboutMeMaxState } from "../../app/appSlice";
-import ZIndexCheck from "./lib/zIndexCheck";
+import ZIndexCheck from "./lib/ZIndexCheck";
 
 export default function AboutMe() {
   const aboutMeOpenState = useAppSelector(selectAboutMeOpenState);

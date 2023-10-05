@@ -1,5 +1,15 @@
+import { useAppDispatch } from "../app/hooks";
+import { setActiveWindow } from "../app/zIndexSlice";
+import { selectSorryHalOpenState, setSorryHalMaxState, setSorryHalOpenState } from "../app/appSlice";
+
 export default function StartMenu(props: { menuIsActive: boolean }) {
+  const dispatch = useAppDispatch();
   const menuIsActive = props.menuIsActive;
+
+  function handleSorryHalClick() {
+    dispatch(setSorryHalOpenState(true));
+    dispatch(setActiveWindow('sorryHal'));
+  }
 
   return (
     <div className={menuIsActive ? `start-menu` : `start-menu--inactive`}>
@@ -25,7 +35,7 @@ export default function StartMenu(props: { menuIsActive: boolean }) {
             <p className="programs__item__text">A Cool Video</p>
           </a>
         </div>
-        <button className="app-drawer__shut-down">
+        <button onClick={handleSorryHalClick} className="app-drawer__shut-down">
           <img className="shut-down__icon" src="/src/assets/shut_down_with_computer-0.png" alt="icon for the shut down button" />
           <p className="shut-down__text">Shut Down</p>
         </button>

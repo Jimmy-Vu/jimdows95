@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../app/hooks";
 import { setActiveWindow } from "../app/zIndexSlice";
-import { selectSorryHalOpenState, setSorryHalMaxState, setSorryHalOpenState } from "../app/appSlice";
+import { setSorryHalOpenState } from "../app/appSlice";
 
 export default function StartMenu(props: { menuIsActive: boolean }) {
   const dispatch = useAppDispatch();

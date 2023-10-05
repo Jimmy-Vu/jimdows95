@@ -10,6 +10,7 @@ export default function SorryHal() {
 
   const content =
     <div className="sorry-hal">
+      <img src="src/components/windows/assets/hal9000.gif" alt="" />
       <p>I'm sorry Dave, I'm afraid I can't do that.</p>
     </div>;
 
@@ -18,7 +19,7 @@ export default function SorryHal() {
       title="Error!"
       id="sorryHal"
       zIdx={zIdx}
-      icon="src/assets/aim-icon.png"
+      icon=""
       content={content}
       defaultSize={{ width: 600, height: 400 }}
       state={{ openState: sorryHalOpenState, maxState: sorryHalMaxState }}

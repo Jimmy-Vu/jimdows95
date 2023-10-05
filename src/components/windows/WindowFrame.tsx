@@ -3,6 +3,7 @@ import { Resizable } from 're-resizable';
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 import { useState } from "react";
+import { setActiveWindow } from "../../app/zIndexSlice";
 
 interface WindowFrameProps {
   title: string,
@@ -12,6 +13,8 @@ interface WindowFrameProps {
   state: { openState: boolean, maxState: boolean },
   setOpenFunc: ActionCreatorWithPayload<boolean, string>,
   setMaxFunc: ActionCreatorWithPayload<boolean, string>,
+  id: string
+  zIdx: number
 }
 
 export default function WindowFrame(props: WindowFrameProps) {
@@ -29,6 +32,7 @@ export default function WindowFrame(props: WindowFrameProps) {
     setSize({ width: window.innerWidth, height: window.innerHeight - 30 })
     setIsDisabled(true);
     dispatch(props.setMaxFunc(true));
+    dispatch(setActiveWindow(props.id));
   }
 
   function handleMin() {
@@ -37,7 +41,12 @@ export default function WindowFrame(props: WindowFrameProps) {
     dispatch(props.setMaxFunc(false))
   }
 
-
+  function handleClick(event: React.MouseEvent<HTMLDivElement>) {
+    const target = event.target as HTMLDivElement;
+    if (target.closest('button')?.className !== 'projects__icons__item') {
+      dispatch(setActiveWindow(props.id));
+    }
+  }
 
   // @ts-expect-error: The onResizeStop property requires the `e`, `direction`, and `ref` parameters even though they don't get used in the function
   function handleResizeStop(e, direction, ref, d: { width: number; height: number; }) {
@@ -70,8 +79,8 @@ export default function WindowFrame(props: WindowFrameProps) {
           minHeight={300}
           style={
             openState ?
-              maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
-                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
+              maxState ? { position: 'absolute', left: '0', top: '0', zIndex: props.zIdx } // Maximized
+                : { position: 'absolute', left: '25%', top: '15%'} // Open but not maximized
               : { display: 'none' } // Closed
           }
         >
@@ -104,57 +113,59 @@ export default function WindowFrame(props: WindowFrameProps) {
     );
   } else {
     return (
-      <Draggable disabled={isDisabled} handle=".window__header">
-        <Resizable
-          className='window'
-          handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
-          enable={{
-            top: false,
-            right: false,
-            bottom: false,
-            left: false,
-            topRight: false,
-            bottomRight: true,
-            bottomLeft: false,
-            topLeft: false
-          }}
-          size={size} // Use the managed size state
-          onResizeStop={handleResizeStop} // Handle the resize event
-          minWidth={500}
-          minHeight={300}
-          style={
-            openState ?
-              maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
-                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
-              : { display: 'none' } // Closed
-          }
-        >
-          <section className="window__container">
-            <header className="window__header">
-              <div className="window__header__details">
-                <img className="window__header__icon" src={props.icon} alt="" />
-                <h1 className="window__header__title">{props.title}</h1>
-              </div>
+      <div onClick={handleClick}>
+        <Draggable disabled={isDisabled} handle=".window__header">
+          <Resizable
+            className='window'
+            handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
+            enable={{
+              top: false,
+              right: false,
+              bottom: false,
+              left: false,
+              topRight: false,
+              bottomRight: true,
+              bottomLeft: false,
+              topLeft: false
+            }}
+            size={size} // Use the managed size state
+            onResizeStop={handleResizeStop} // Handle the resize event
+            minWidth={500}
+            minHeight={300}
+            style={
+              openState ?
+                maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
+                  : { position: 'absolute', left: '25%', top: '15%', zIndex: props.zIdx } // Open but not maximized
+                : { display: 'none' } // Closed
+            }
+          >
+            <section className="window__container">
+              <header className="window__header">
+                <div className="window__header__details">
+                  <img className="window__header__icon" src={props.icon} alt="" />
+                  <h1 className="window__header__title">{props.title}</h1>
+                </div>
 
-              <div className="window__header__control-buttons">
-                <button className="control-buttons__button">
-                  <i className="fa-solid fa-window-minimize"></i>
-                </button>
-                <button onClick={handleMax} className="control-buttons__button">
-                  <i className="fa-regular fa-window-maximize"></i>
-                </button>
-                <button onClick={handleClose} className="control-buttons__button">
-                  <i className="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-            </header>
-            <main className="window__main">
-              {props.content}
-            </main>
-            <footer className="window__footer"></footer>
-          </section>
-        </Resizable>
-      </Draggable >
+                <div className="window__header__control-buttons">
+                  <button className="control-buttons__button">
+                    <i className="fa-solid fa-window-minimize"></i>
+                  </button>
+                  <button onClick={handleMax} className="control-buttons__button">
+                    <i className="fa-regular fa-window-maximize"></i>
+                  </button>
+                  <button onClick={handleClose} className="control-buttons__button">
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </header>
+              <main className="window__main">
+                {props.content}
+              </main>
+              <footer className="window__footer"></footer>
+            </section>
+          </Resizable>
+        </Draggable >
+      </div>
     );
   }
 }

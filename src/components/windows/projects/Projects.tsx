@@ -2,30 +2,37 @@ import WindowFrame from "../WindowFrame";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { setProjectsOpenState, selectProjectsOpenState, setProjectsMaxState, selectProjectsMaxState } from "../../../app/appSlice";
 import { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } from "../../../app/projectsSlice";
+import { setActiveWindow } from "../../../app/zIndexSlice";
+import ZIndexCheck from "../lib/zIndexCheck";
 import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
 import Jimdows95 from "./Jimdows95";
 import NHH from "./NHH";
 
 export default function Projects() {
+  const dispatch = useAppDispatch();
   const projectsOpenState = useAppSelector(selectProjectsOpenState);
   const projectMaxState = useAppSelector(selectProjectsMaxState);
-  const dispatch = useAppDispatch();
+  const zIdx = ZIndexCheck('projects');
 
   function handleColosseumClick() {
     dispatch(setColosseumOpenState(true));
+    dispatch(setActiveWindow('colosseum'));
   }
 
   function handleVicarusClick() {
     dispatch(setVicarusOpenState(true));
+    dispatch(setActiveWindow('vicarus'));
   }
 
   function handleJimdows95Click() {
     dispatch(setJimdows95OpenState(true));
+    dispatch(setActiveWindow('jimdows95'));
   }
 
   function handleNHHClick() {
     dispatch(setNHHOpenState(true));
+    dispatch(setActiveWindow('nhh'));
   }
 
   const content =
@@ -54,6 +61,8 @@ export default function Projects() {
     <>
       <WindowFrame
         title="Projects"
+        id={'projects'}
+        zIdx={zIdx}
         icon="src/assets/open-folder-icon.png"
         content={content}
         defaultSize={{ width: 500, height: 400 }}

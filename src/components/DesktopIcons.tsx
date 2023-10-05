@@ -1,19 +1,23 @@
 import { useAppDispatch } from "../app/hooks";
 import { setAboutMeOpenState, setProjectsOpenState, setContactMeOpenState } from "../app/appSlice";
+import { setActiveWindow } from "../app/zIndexSlice";
 
 export default function DesktopIcons() {
   const dispatch = useAppDispatch();
 
   function handleAboutMeClick() {
     dispatch(setAboutMeOpenState(true));
+    dispatch(setActiveWindow('aboutMe'));
   }
 
   function handleProjectsClick() {
     dispatch(setProjectsOpenState(true));
+    dispatch(setActiveWindow('projects'));
   }
 
   function handleContactMeClick() {
     dispatch(setContactMeOpenState(true));
+    dispatch(setActiveWindow('contactMe'));
   }
 
   return (

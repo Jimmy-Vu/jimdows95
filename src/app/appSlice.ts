@@ -23,11 +23,11 @@ interface AppState {
 
 const initialState: AppState = {
   aboutMe: {
-    aboutMeIsOpen: false,
+    aboutMeIsOpen: true,
     aboutMeIsMax: false
   },
   projects: {
-    projectsIsOpen: true,
+    projectsIsOpen: false,
     projectsIsMax: false
   },
   contactMe: {

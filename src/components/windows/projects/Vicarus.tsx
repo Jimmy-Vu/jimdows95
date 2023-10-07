@@ -1,7 +1,7 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setVicarusOpenState, setVicarusMaxState, selectVicarusOpenState, selectVicarusMaxState } from "../../../app/projectsSlice";
-import ZIndexCheck from "../lib/zIndexCheck";
+import ZIndexCheck from "../lib/ZIndexCheck";
 
 export default function Vicarus() {
   const vicarusOpenState = useAppSelector(selectVicarusOpenState);

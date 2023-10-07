@@ -1,7 +1,7 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setNHHOpenState, setNHHMaxState, selectNHHOpenState, selectNHHMaxState } from "../../../app/projectsSlice";
-import ZIndexCheck from "../lib/zIndexCheck";
+import ZIndexCheck from "../lib/ZIndexCheck";
 
 export default function NHH() {
   const nhhOpenState = useAppSelector(selectNHHOpenState);

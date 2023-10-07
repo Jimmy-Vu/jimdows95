@@ -95,6 +95,6 @@ export const selectContactMeOpenState = (state: RootState) => state.app.contactM
 export const selectContactMeMaxState = (state: RootState) => state.app.contactMe.contactMeIsMax;
 
 export const selectSorryHalOpenState = (state: RootState) => state.app.sorryHal.sorryHalIsOpen;
-export const selectSorryHalmaxState = (state: RootState) => state.app.sorryHal.sorryHalIsMax;
+export const selectSorryHalMaxState = (state: RootState) => state.app.sorryHal.sorryHalIsMax;
 
 export default appSlice.reducer;

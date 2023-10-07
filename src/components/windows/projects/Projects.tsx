@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { setProjectsOpenState, selectProjectsOpenState, setProjectsMaxState, selectProjectsMaxState } from "../../../app/appSlice";
 import { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } from "../../../app/projectsSlice";
 import { setActiveWindow } from "../../../app/zIndexSlice";
-import ZIndexCheck from "../lib/zIndexCheck";
+import ZIndexCheck from "../lib/ZIndexCheck";
 import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
 import Jimdows95 from "./Jimdows95";

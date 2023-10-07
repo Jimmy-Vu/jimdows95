@@ -1,7 +1,7 @@
 import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setColosseumOpenState, setColosseumMaxState, selectColosseumOpenState, selectColosseumMaxState } from "../../../app/projectsSlice";
-import ZIndexCheck from "../lib/zIndexCheck";
+import ZIndexCheck from "../lib/ZIndexCheck";
 
 export default function Colosseum() {
   const colosseumOpenState = useAppSelector(selectColosseumOpenState);

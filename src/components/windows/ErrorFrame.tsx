@@ -2,6 +2,7 @@ import Draggable from "react-draggable";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 import { setActiveWindow } from "../../app/zIndexSlice";
+import WindowCenterReturn from "./lib/WindowCenterReturn";
 
 interface ErrorFrameProps {
   title: string,
@@ -18,6 +19,7 @@ interface ErrorFrameProps {
 export default function ErrorFrame(props: ErrorFrameProps) {
   const dispatch = useAppDispatch()
   const { openState } = props.state;
+  const { widthCenter, heightCenter } = WindowCenterReturn();
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
@@ -33,7 +35,9 @@ export default function ErrorFrame(props: ErrorFrameProps) {
   return (
     <div onClick={handleClick}>
       <Draggable handle=".error-window__header">
-        <div className="error-window" style={openState ? { height: props.defaultSize.height, width: props.defaultSize.width, zIndex: props.zIdx} : {display: 'none'}}>
+        <div className="error-window" style={openState
+          ? { height: props.defaultSize.height, width: props.defaultSize.width, zIndex: props.zIdx, left: widthCenter, top: heightCenter, translate: '-50% -50%' }
+          : {display: 'none'}}>
           <section className="error-window__container">
             <header className="error-window__header">
               <div className="error-window__header__details">

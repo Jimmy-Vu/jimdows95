@@ -4,6 +4,7 @@ import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 import { useState } from "react";
 import { setActiveWindow } from "../../app/zIndexSlice";
+import WindowCenterReturn from "./lib/WindowCenterReturn";
 
 interface WindowFrameProps {
   title: string,
@@ -23,6 +24,7 @@ export default function WindowFrame(props: WindowFrameProps) {
   const { openState, maxState } = props.state;
   const [isDisabled, setIsDisabled] = useState(false);
   const [size, setSize] = useState({ width: width, height: height });
+  const { widthCenter, heightCenter } = WindowCenterReturn();
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
@@ -133,9 +135,8 @@ export default function WindowFrame(props: WindowFrameProps) {
             minWidth={500}
             minHeight={300}
             style={
-              openState ?
-                maxState ? { position: 'absolute', left: '0', top: '0' } // Maximized
-                  : { position: 'absolute', left: '25%', top: '15%', zIndex: props.zIdx } // Open but not maximized
+              openState
+                ? { position: 'absolute', left: widthCenter, top: heightCenter, translate: '-50% -50%', zIndex: props.zIdx } // Open but not maximized
                 : { display: 'none' } // Closed
             }
           >

@@ -1,9 +1,9 @@
 import { useAppDispatch } from "../app/hooks";
 import { setAboutMeOpenState, setProjectsOpenState, setContactMeOpenState } from "../app/appSlice";
 import { setActiveWindow } from "../app/zIndexSlice";
-import aboutMeIcon from "src/assets/about-me-icon.png";
-import projectsIcon from "src/assets/open-folder-icon.png";
-import contactMeIcon from "src/assets/aim-icon.png";
+import aboutMeIcon from "../assets/about-me-icon.png";
+import projectsIcon from "../assets/open-folder-icon.png";
+import contactMeIcon from "../assets/aim-icon.png";
 
 export default function DesktopIcons() {
   const dispatch = useAppDispatch();

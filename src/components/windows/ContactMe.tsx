@@ -44,19 +44,17 @@ export default function ContactMe() {
       <form className="contact-me__form" ref={formRef} onSubmit={handleSubmit}>
         <input type="hidden" name="access_key" value="4e25eb62-5459-4ae5-9b6a-2bd82e98aea8" />
         <input type="hidden" name="subject" value="New Message from jimmyvu.co" />
-        <div className="fields">
-          <div className="field">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" required />
-          </div>
-          <div className="field">
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email" id="email" required />
-          </div>
-          <div className="field">
-            <label htmlFor="message">Message</label>
-            <textarea name="message" id="message" rows={5} required></textarea>
-          </div>
+        <div className="contact-me__form__name">
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" id="name" required />
+        </div>
+        <div className="contact-me__form__email">
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" id="email" required />
+        </div>
+        <div className="contact-me__form__message">
+          <label htmlFor="message">Message</label>
+          <textarea name="message" id="message" rows={5} required></textarea>
         </div>
         <button type="submit">Send Message</button>
       </form>
@@ -69,7 +67,7 @@ export default function ContactMe() {
       zIdx={zIdx}
       icon="src/assets/aim-icon.png"
       content={content}
-      defaultSize={{ width: 600, height: 400 }}
+      defaultSize={{ width: 300, height: 400 }}
       state={{ openState: contactMeOpenState, maxState: contactMeMaxState }}
       setOpenFunc={setContactMeOpenState}
       setMaxFunc={setContactMeMaxState}

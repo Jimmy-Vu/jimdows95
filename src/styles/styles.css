@@ -290,6 +290,17 @@
   font-size: 20px;
 }
 
+.contact-me {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.contact-me__form__name, .contact-me__form__email, .contact-me__form__message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
 .error-window {
   position: absolute;
   left: 30%;

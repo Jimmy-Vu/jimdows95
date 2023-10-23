@@ -132,7 +132,7 @@ export default function WindowFrame(props: WindowFrameProps) {
             }}
             size={size} // Use the managed size state
             onResizeStop={handleResizeStop} // Handle the resize event
-            minWidth={500}
+            minWidth={300}
             minHeight={300}
             style={
               openState

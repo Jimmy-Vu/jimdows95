@@ -1,0 +1,14 @@
+.contact-me {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  &__form {
+    &__name, &__email, &__message {
+      display: flex;
+      flex-direction: column;
+
+      margin-bottom: 0.5rem;
+    }
+  }
+}

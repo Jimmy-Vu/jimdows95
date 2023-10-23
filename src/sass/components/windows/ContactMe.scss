@@ -4,11 +4,26 @@
   padding: 1rem;
 
   &__form {
-    &__name, &__email, &__message {
+
+    &__name {
       display: flex;
       flex-direction: column;
-
+      max-width: 300px;
       margin-bottom: 0.5rem;
+    }
+
+    &__email {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+    }
+
+    &__message {
+      display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin-bottom: 0.5rem;
     }
   }
 }

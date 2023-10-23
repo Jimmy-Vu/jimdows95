@@ -295,9 +295,22 @@
   flex-direction: column;
   padding: 1rem;
 }
-.contact-me__form__name, .contact-me__form__email, .contact-me__form__message {
+.contact-me__form__name {
   display: flex;
   flex-direction: column;
+  max-width: 300px;
+  margin-bottom: 0.5rem;
+}
+.contact-me__form__email {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin-bottom: 0.5rem;
+}
+.contact-me__form__message {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
   margin-bottom: 0.5rem;
 }
 

@@ -132,11 +132,11 @@ export default function WindowFrame(props: WindowFrameProps) {
             }}
             size={size} // Use the managed size state
             onResizeStop={handleResizeStop} // Handle the resize event
-            minWidth={500}
+            minWidth={300}
             minHeight={300}
             style={
               openState
-                ? { position: 'absolute', left: widthCenter, top: heightCenter, translate: '-50% -50%', zIndex: props.zIdx } // Open but not maximized
+                ? { position: 'absolute', left: widthCenter, top: heightCenter, zIndex: props.zIdx } // Open but not maximized
                 : { display: 'none' } // Closed
             }
           >

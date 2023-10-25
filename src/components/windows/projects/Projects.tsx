@@ -8,6 +8,7 @@ import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
 import Jimdows95 from "./Jimdows95";
 import NHH from "./NHH";
+import closedFolderIcon from "/src/assets/closed_folder.png";
 
 export default function Projects() {
   const dispatch = useAppDispatch();
@@ -39,19 +40,19 @@ export default function Projects() {
     <div className="projects">
       <section className="projects__icons">
         <button className="projects__icons__item" onClick={handleColosseumClick}>
-          <img id="colosseum" src="src/assets/closed_folder.png" alt="" />
+          <img id="colosseum" src={closedFolderIcon} alt="closed folder icon" />
           <label htmlFor="colosseum">Colosseum</label>
         </button>
         <button className="projects__icons__item" onClick={handleVicarusClick}>
-          <img id="vicarus" src="src/assets/closed_folder.png" alt="" />
+          <img id="vicarus" src={closedFolderIcon} alt="closed folder icon" />
           <label htmlFor="vicarus">Vincent&Icarus</label>
         </button>
-        <button id="jimdows95" className="projects__icons__item" onClick={handleJimdows95Click}>
-          <img src="src/assets/closed_folder.png" alt="" />
+        <button className="projects__icons__item" onClick={handleJimdows95Click}>
+          <img id="jimdows95" src={closedFolderIcon} alt="closed folder icon" />
           <label htmlFor="jimdows95">Jimdows95</label>
         </button>
         <button className="projects__icons__item" onClick={handleNHHClick}>
-          <img id="NHH" src="src/assets/closed_folder.png" alt="" />
+          <img id="NHH" src={closedFolderIcon} alt="closed folder icon" />
           <label htmlFor="NHH">New Horizon Hub</label>
         </button>
       </section>

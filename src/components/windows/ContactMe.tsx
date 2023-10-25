@@ -3,6 +3,7 @@ import { useAppSelector } from "../../app/hooks";
 import { setContactMeOpenState, setContactMeMaxState, selectContactMeOpenState, selectContactMeMaxState } from "../../app/appSlice";
 import ZIndexCheck from "./lib/ZIndexCheck";
 import { useRef, useState } from "react";
+import contactMeIcon from "/src/assets/aim-icon.png";
 
 export default function ContactMe() {
   const contactMeOpenState = useAppSelector(selectContactMeOpenState);
@@ -82,7 +83,7 @@ export default function ContactMe() {
       title="Contact Me"
       id="contactMe"
       zIdx={zIdx}
-      icon="src/assets/aim-icon.png"
+      icon={contactMeIcon}
       content={content}
       defaultSize={{ width: 300, height: 400 }}
       state={{ openState: contactMeOpenState, maxState: contactMeMaxState }}

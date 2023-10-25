@@ -9,6 +9,7 @@ import Vicarus from "./Vicarus";
 import Jimdows95 from "./Jimdows95";
 import NHH from "./NHH";
 import closedFolderIcon from "/src/assets/closed_folder.png";
+import projectsIcon from "/src/assets/open-folder-icon.png";
 
 export default function Projects() {
   const dispatch = useAppDispatch();
@@ -64,7 +65,7 @@ export default function Projects() {
         title="Projects"
         id={'projects'}
         zIdx={zIdx}
-        icon="src/assets/open-folder-icon.png"
+        icon={projectsIcon}
         content={content}
         defaultSize={{ width: 500, height: 400 }}
         state={{ openState: projectsOpenState, maxState: projectMaxState }}

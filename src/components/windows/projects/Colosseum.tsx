@@ -2,6 +2,7 @@ import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setColosseumOpenState, setColosseumMaxState, selectColosseumOpenState, selectColosseumMaxState } from "../../../app/projectsSlice";
 import ZIndexCheck from "../lib/ZIndexCheck";
+import colosseumIcon from "/src/assets/open-folder-icon.png";
 
 export default function Colosseum() {
   const colosseumOpenState = useAppSelector(selectColosseumOpenState);
@@ -12,7 +13,7 @@ export default function Colosseum() {
     <div id="colosseum" className="project__main">
       <section className="project__hero">
         <h1 className="project__hero__heading">Colosseum</h1>
-        <img className="project__hero__image" src="src/components/windows/projects/assets/colosseum-combo-mockup.png" alt="" />
+        <img className="project__hero__image" src="src/components/windows/projects/assets/colosseum-combo-mockup.png" alt="mock up image of colosseum on a laptop and smart phone" />
       </section>
 
       <section className="project__links">
@@ -33,7 +34,7 @@ export default function Colosseum() {
       title="Colosseum"
       id="colosseum"
       zIdx={zIdx}
-      icon="src/assets/open-folder-icon.png"
+      icon={colosseumIcon}
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={{ openState: colosseumOpenState, maxState: colosseumMaxState }}

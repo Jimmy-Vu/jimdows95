@@ -2,6 +2,7 @@ import ErrorFrame from "./ErrorFrame";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { setSorryHalOpenState, setSorryHalMaxState, selectSorryHalOpenState } from "../../app/appSlice";
 import ZIndexCheck from "./lib/ZIndexCheck";
+import hal9000Img from "/src/components/windows/assets/hal9000.gif";
 
 export default function SorryHal() {
   const dispatch = useAppDispatch();
@@ -12,7 +13,7 @@ export default function SorryHal() {
     <div className="sorry-hal">
       <section className="sorry-hal__main">
         <a href="https://youtu.be/ARJ8cAGm6JE?t=59" target="_blank">
-          <img className="sorry-hal__main__image" src="src/components/windows/assets/hal9000.gif" alt="" />
+          <img className="sorry-hal__main__image" src={hal9000Img} alt="image of Hal 9000" />
         </a>
         <p className="sorry-hal__main__message">I'm sorry
           <a className="sorry-hal__main__message__link" href="https://youtu.be/ARJ8cAGm6JE?t=59" target="_blank">

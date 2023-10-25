@@ -2,6 +2,7 @@ import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setNHHOpenState, setNHHMaxState, selectNHHOpenState, selectNHHMaxState } from "../../../app/projectsSlice";
 import ZIndexCheck from "../lib/ZIndexCheck";
+import nhhIcon from "/src/assets/open-folder-icon.png";
 
 export default function NHH() {
   const nhhOpenState = useAppSelector(selectNHHOpenState);
@@ -12,11 +13,10 @@ export default function NHH() {
     <div id="NHH" className="project__main">
       <section className="project__hero">
         <h1 className="project__hero__heading">New Horizon Hub</h1>
-        <img className="project__hero__image" src="src/components/windows/projects/assets/NHH-combo-mockup.png" alt="" />
+        <img className="project__hero__image" src="src/components/windows/projects/assets/NHH-combo-mockup.png" alt="mock up image of New Horizon Hub on a laptop and smart phone" />
       </section>
 
       <section className="project__links">
-        {/* <a className="project__links__button" target="_blank" href="https://colosseum.fly.dev/">Live Site</a> */}
         <a className="project__links__button" target="_blank" href="https://github.com/Jimmy-Vu/new-horizon-hub">Repo</a>
       </section>
 
@@ -38,7 +38,7 @@ export default function NHH() {
       title="New Horizon Hub"
       id="nhh"
       zIdx={zIdx}
-      icon="src/assets/open-folder-icon.png"
+      icon={nhhIcon}
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={{openState: nhhOpenState, maxState: nhhMaxState}}

@@ -2,6 +2,7 @@ import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setJimdows95OpenState, setJimdowsMaxState, selectJimdows95OpenState, selectJimdows95MaxState } from "../../../app/projectsSlice";
 import ZIndexCheck from "../lib/ZIndexCheck";
+import jimdows95Icon from "/src/assets/open-folder-icon.png";
 
 export default function Jimdows95() {
   const jimdows95OpenState = useAppSelector(selectJimdows95OpenState);
@@ -12,7 +13,7 @@ export default function Jimdows95() {
     <div id="jimdows95" className="project__main">
       <section className="project__hero">
         <h1 className="project__hero__heading">Jimdows95</h1>
-        <img className="project__hero__image" src="src/components/windows/projects/assets/jimdows95-combo-mockup-workfiles.png" alt="image of jimdows95 on a laptop and smart phone" />
+        <img className="project__hero__image" src="src/components/windows/projects/assets/jimdows95-combo-mockup-workfiles.png" alt="mock up image of jimdows95 on a laptop and smart phone" />
       </section>
 
       <section className="project__links">
@@ -45,7 +46,7 @@ export default function Jimdows95() {
       title="Jimdows95"
       id="jimdows95"
       zIdx={zIdx}
-      icon="src/assets/open-folder-icon.png"
+      icon={jimdows95Icon}
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={{openState: jimdows95OpenState, maxState: jimdows95MaxState}}

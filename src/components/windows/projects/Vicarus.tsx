@@ -2,6 +2,7 @@ import WindowFrame from "../WindowFrame";
 import { useAppSelector } from "../../../app/hooks";
 import { setVicarusOpenState, setVicarusMaxState, selectVicarusOpenState, selectVicarusMaxState } from "../../../app/projectsSlice";
 import ZIndexCheck from "../lib/ZIndexCheck";
+import vicarusIcon from "/src/assets/open-folder-icon.png";
 
 export default function Vicarus() {
   const vicarusOpenState = useAppSelector(selectVicarusOpenState);
@@ -12,7 +13,7 @@ export default function Vicarus() {
     <div id="vicarus" className="project__main">
       <section className="project__hero">
         <h1 className="project__hero__heading">Vincent&Icarus</h1>
-        <img className="project__hero__image" src="src/components/windows/projects/assets/Vicarus-combo-mockup.png" alt="" />
+        <img className="project__hero__image" src="src/components/windows/projects/assets/Vicarus-combo-mockup.png" alt="mock up image of Vincent & Icarus on a laptop and smart phone" />
       </section>
 
       <section className="project__links">
@@ -36,7 +37,7 @@ export default function Vicarus() {
       title="Vincent&Icarus"
       id="vicarus"
       zIdx={zIdx}
-      icon="src/assets/open-folder-icon.png"
+      icon={vicarusIcon}
       content={content}
       defaultSize={{ width: 500, height: 600 }}
       state={{openState: vicarusOpenState, maxState: vicarusMaxState}}

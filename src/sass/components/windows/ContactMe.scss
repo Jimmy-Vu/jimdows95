@@ -21,9 +21,26 @@
 
     &__message {
       display: flex;
-        flex-direction: column;
-        max-width: 500px;
-        margin-bottom: 0.5rem;
+      flex-direction: column;
+      max-width: 500px;
+      margin-bottom: 0.5rem;
+    }
+
+    &__submit-row {
+      display: flex;
+      justify-content: space-between;
+      max-width: 300px;
+
+      .submit-row__status {
+        &--hidden {
+          display: none;
+        }
+
+        &--active {
+          display: block;
+          font-size: 18px;
+        }
+      }
     }
   }
 }

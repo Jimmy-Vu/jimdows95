@@ -313,6 +313,18 @@
   max-width: 500px;
   margin-bottom: 0.5rem;
 }
+.contact-me__form__submit-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+}
+.contact-me__form__submit-row .submit-row__status--hidden {
+  display: none;
+}
+.contact-me__form__submit-row .submit-row__status--active {
+  display: block;
+  font-size: 18px;
+}
 
 .error-window {
   position: absolute;

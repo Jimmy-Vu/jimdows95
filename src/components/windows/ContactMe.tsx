@@ -2,16 +2,22 @@ import WindowFrame from "./WindowFrame";
 import { useAppSelector } from "../../app/hooks";
 import { setContactMeOpenState, setContactMeMaxState, selectContactMeOpenState, selectContactMeMaxState } from "../../app/appSlice";
 import ZIndexCheck from "./lib/ZIndexCheck";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function ContactMe() {
   const contactMeOpenState = useAppSelector(selectContactMeOpenState);
   const contactMeMaxState = useAppSelector(selectContactMeMaxState);
+  const [submitStatus, setsubmitStatus] = useState<'hidden' | 'active'>('hidden');
+  const [submitMsg, setsubmitMsg] = useState<string>();
   const zIdx = ZIndexCheck('contactMe');
   const formRef = useRef<HTMLFormElement | null>(null);
 
+  // Handling the form submission manually to control the status message at every step
+  // and prevent web3form's redirection
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setsubmitMsg('Sending...');
+    setsubmitStatus("active");
     const formData = new FormData(formRef.current!);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -26,7 +32,10 @@ export default function ContactMe() {
     })
       .then(async (response) => {
         if (response.status == 200) {
-          console.log('All good');
+          setsubmitMsg('Sent!');
+          setTimeout(() => {
+            setsubmitStatus("hidden");
+          }, 5000);
           formRef.current!.reset();
         } else {
           console.log(response);
@@ -56,7 +65,15 @@ export default function ContactMe() {
           <label htmlFor="message">Message</label>
           <textarea name="message" id="message" rows={5} required></textarea>
         </div>
-        <button type="submit">Send Message</button>
+        <div className="contact-me__form__submit-row">
+          <button type="submit">Send Message</button>
+          {
+            (submitStatus === 'hidden')
+              ? <span className="submit-row__status--hidden"></span>
+              : <span className="submit-row__status--active">{submitMsg}</span>
+          }
+
+        </div>
       </form>
     </div>;
 

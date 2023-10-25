@@ -136,7 +136,7 @@ export default function WindowFrame(props: WindowFrameProps) {
             minHeight={300}
             style={
               openState
-                ? { position: 'absolute', left: widthCenter, top: heightCenter, translate: '-50% -50%', zIndex: props.zIdx } // Open but not maximized
+                ? { position: 'absolute', left: widthCenter, top: heightCenter, zIndex: props.zIdx } // Open but not maximized
                 : { display: 'none' } // Closed
             }
           >

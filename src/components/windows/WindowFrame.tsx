@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../app/hooks";
 import { useState } from "react";
 import { setActiveWindow } from "../../app/zIndexSlice";
 import WindowCenterReturn from "./lib/WindowCenterReturn";
+import bottomRightHandleImage from "/src/assets/resize-right.svg";
 
 interface WindowFrameProps {
   title: string,
@@ -64,7 +65,7 @@ export default function WindowFrame(props: WindowFrameProps) {
       <Draggable position={{ x: 0, y: 0 }} disabled={isDisabled} handle=".window__header">
         <Resizable
           className='window'
-          handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
+          handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src={bottomRightHandleImage} alt="" /> }}
           enable={{
             top: false,
             right: false,

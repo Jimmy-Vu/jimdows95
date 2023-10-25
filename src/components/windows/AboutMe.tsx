@@ -2,6 +2,7 @@ import WindowFrame from "./WindowFrame";
 import { useAppSelector } from "../../app/hooks";
 import { setAboutMeOpenState, setAboutMeMaxState, selectAboutMeOpenState, selectAboutMeMaxState } from "../../app/appSlice";
 import ZIndexCheck from "./lib/ZIndexCheck";
+import aboutMeIcon from "/src/assets/about-me-icon.png";
 
 export default function AboutMe() {
   const aboutMeOpenState = useAppSelector(selectAboutMeOpenState);
@@ -40,7 +41,7 @@ export default function AboutMe() {
       title="About Me"
       id="aboutMe"
       zIdx={zIdx}
-      icon="src/assets/about-me-icon.png"
+      icon={aboutMeIcon}
       content={content}
       defaultSize={{ width: 700, height: 500 }}
       state={{ openState: aboutMeOpenState, maxState: aboutMeMaxState }}

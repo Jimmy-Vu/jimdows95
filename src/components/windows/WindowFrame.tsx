@@ -65,7 +65,6 @@ export default function WindowFrame(props: WindowFrameProps) {
       <Draggable position={{ x: 0, y: 0 }} disabled={isDisabled} handle=".window__header">
         <Resizable
           className='window'
-          handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src={bottomRightHandleImage} alt="" /> }}
           enable={{
             top: false,
             right: false,
@@ -120,7 +119,7 @@ export default function WindowFrame(props: WindowFrameProps) {
         <Draggable disabled={isDisabled} handle=".window__header">
           <Resizable
             className='window'
-            handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src="src/assets/resize-right.svg" alt="" /> }}
+            handleComponent={{ bottomRight: <img style={{ transform: 'translateX(-10px) translateY(-10px)' }} src={bottomRightHandleImage} alt="" /> }}
             enable={{
               top: false,
               right: false,

@@ -1,0 +1,46 @@
+.contact-me {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  &__form {
+
+    &__name {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+    }
+
+    &__email {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+    }
+
+    &__message {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin-bottom: 0.5rem;
+    }
+
+    &__submit-row {
+      display: flex;
+      justify-content: space-between;
+      max-width: 300px;
+
+      .submit-row__status {
+        &--hidden {
+          display: none;
+        }
+
+        &--active {
+          display: block;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

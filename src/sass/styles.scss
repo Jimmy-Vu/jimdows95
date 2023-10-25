@@ -1,13 +1,25 @@
 @use "./components/Taskbar.scss";
 @use "./components/StartMenu.scss";
 @use "./components/DesktopIcons.scss";
+@use "./components/windows/Window.scss";
+@use "./components/windows/AboutMe.scss";
+@use "./components/windows/Projects.scss";
+@use "./components/windows/ContactMe.scss";
+@use "./components/windows/Error.scss";
+@use "./components/windows/SorryHal.scss";
 @use "./fonts.scss";
 
 * {
   font-family: "W95FA", sans-serif;
 }
-main {
-  height: 100vh;
+
+.app__main {
+  position: relative;
+  overflow: hidden;
+
+  height: 100dvh;
+  max-height: 100dvh;
+
   background-color: #2E8181;
 }
 

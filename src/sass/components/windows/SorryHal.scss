@@ -1,0 +1,36 @@
+.sorry-hal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    &__image {
+      height: 70px;
+    }
+
+    &__message {
+      &__link {
+        color: blue;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+
+    &__confirm {
+      border-radius: 0;
+    }
+  }
+}

@@ -8,8 +8,8 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  active: 'temp',
-  windows: []
+  active: 'About Me',
+  windows: ['About Me']
 }
 
 export const taskbarSlice = createSlice({
@@ -26,6 +26,8 @@ export const taskbarSlice = createSlice({
       const index = state.windows.indexOf(action.payload);
       if (index !== -1) {
         state.windows.splice(index, 1);
+      } else {
+        console.error({ error: 'Removal of window from taskbar failed.' })
       }
     }
   }

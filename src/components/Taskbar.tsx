@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import StartMenu from "./StartMenu";
 import win95Logo from "/src/assets/win95_logo.png";
+import { useAppSelector } from "../app/hooks";
+import { selectWindows } from "../app/taskbarSlice";
 
 export default function Taskbar() {
   const [menuIsActive, setMenuIsActive] = useState(false);
@@ -9,6 +11,7 @@ export default function Taskbar() {
     hour: 'numeric',
     minute: 'numeric'
   }));
+  const openWindows = useAppSelector(selectWindows);
 
   useEffect(() => {
     setInterval(() => {
@@ -28,12 +31,16 @@ export default function Taskbar() {
           <img src={win95Logo} alt="windows 95 logo" />
           Start
         </button>
-        <div className="taskbar__open-apps">
-
-        </div>
-        <div className="taskbar__time">
+        <section className="taskbar__open-apps">
+          {
+            openWindows.map(window => (
+              <button className="taskbar__open-apps__window">{window}</button>
+            ))
+          }
+        </section>
+        <section className="taskbar__time">
           <p>{currTime}</p>
-        </div>
+        </section>
       </section>
     </>
   )

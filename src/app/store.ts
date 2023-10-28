@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import appSlice from "./appSlice";
 import projectsSlice from "./projectsSlice";
 import zIndexSlice from "./zIndexSlice";
+import taskbarSlice from "./taskbarSlice";
 
 export const store = configureStore({
   reducer: {
     app: appSlice,
     projects: projectsSlice,
-    zIndexes: zIndexSlice
+    zIndexes: zIndexSlice,
+    taskbar: taskbarSlice
   },
 });
 

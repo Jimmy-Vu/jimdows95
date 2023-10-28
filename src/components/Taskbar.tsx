@@ -28,6 +28,9 @@ export default function Taskbar() {
           <img src={win95Logo} alt="windows 95 logo" />
           Start
         </button>
+        <div className="taskbar__open-apps">
+
+        </div>
         <div className="taskbar__time">
           <p>{currTime}</p>
         </div>

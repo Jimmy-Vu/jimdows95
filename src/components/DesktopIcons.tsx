@@ -12,6 +12,7 @@ export default function DesktopIcons() {
   function handleAboutMeClick() {
     dispatch(setAboutMeOpenState(true));
     dispatch(setActiveWindow('aboutMe'));
+    dispatch(addWindow('About Me'));
   }
 
   function handleProjectsClick() {

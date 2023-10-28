@@ -1,6 +1,7 @@
 import ErrorFrame from "./ErrorFrame";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { setSorryHalOpenState, setSorryHalMaxState, selectSorryHalOpenState } from "../../app/appSlice";
+import { removeWindow } from "../../app/taskbarSlice";
 import ZIndexCheck from "./lib/ZIndexCheck";
 import hal9000Img from "/src/components/windows/assets/hal9000.gif";
 
@@ -8,6 +9,11 @@ export default function SorryHal() {
   const dispatch = useAppDispatch();
   const sorryHalOpenState = useAppSelector(selectSorryHalOpenState);
   const zIdx = ZIndexCheck('sorryHal');
+
+  function handleConfirm() {
+    dispatch(setSorryHalOpenState(false));
+    dispatch(removeWindow('Error Exiting System'));
+  }
 
   const content =
     <div className="sorry-hal">
@@ -22,7 +28,7 @@ export default function SorryHal() {
           , I'm afraid I can't do that.</p>
       </section>
       <section className="sorry-hal__btn-container">
-        <button onClick={() => dispatch(setSorryHalOpenState(false))} className="sorry-hal__btn-container__confirm">Okay</button>
+        <button onClick={handleConfirm} className="sorry-hal__btn-container__confirm">Okay</button>
       </section>
     </div>;
 

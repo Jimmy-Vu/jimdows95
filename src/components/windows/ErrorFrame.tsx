@@ -2,6 +2,7 @@ import Draggable from "react-draggable";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 import { setActiveWindow } from "../../app/zIndexSlice";
+import { removeWindow } from "../../app/taskbarSlice";
 
 interface ErrorFrameProps {
   title: string,
@@ -21,6 +22,7 @@ export default function ErrorFrame(props: ErrorFrameProps) {
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
+    dispatch(removeWindow(props.title));
   }
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {

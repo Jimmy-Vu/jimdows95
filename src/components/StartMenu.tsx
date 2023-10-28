@@ -1,6 +1,7 @@
 import { useAppDispatch } from "../app/hooks";
 import { setActiveWindow } from "../app/zIndexSlice";
 import { setSorryHalOpenState } from "../app/appSlice";
+import { addWindow } from "../app/taskbarSlice";
 import linkedinIcon from "/src/assets/linkedin-icon.png";
 import githubIcon from "/src/assets/github-icon.png";
 import twitterIcon from "/src/assets/twitter-icon.png";
@@ -14,6 +15,7 @@ export default function StartMenu(props: { menuIsActive: boolean }) {
   function handleSorryHalClick() {
     dispatch(setSorryHalOpenState(true));
     dispatch(setActiveWindow('sorryHal'));
+    dispatch(addWindow('Error Exiting System'));
   }
 
   return (

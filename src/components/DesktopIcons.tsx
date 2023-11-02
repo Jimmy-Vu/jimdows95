@@ -12,19 +12,19 @@ export default function DesktopIcons() {
   function handleAboutMeClick() {
     dispatch(setAboutMeOpenState(true));
     dispatch(setActiveWindow('aboutMe'));
-    dispatch(addWindow('About Me'));
+    dispatch(addWindow({ title: 'About Me', id: 'aboutMe' }));
   }
 
   function handleProjectsClick() {
     dispatch(setProjectsOpenState(true));
     dispatch(setActiveWindow('projects'));
-    dispatch(addWindow('Projects'));
+    dispatch(addWindow({ title: 'Projects', id: 'projects' }));
   }
 
   function handleContactMeClick() {
     dispatch(setContactMeOpenState(true));
     dispatch(setActiveWindow('contactMe'));
-    dispatch(addWindow('Contact Me'));
+    dispatch(addWindow({ title: 'Contact Me', id: 'contactMe' }));
   }
 
   return (

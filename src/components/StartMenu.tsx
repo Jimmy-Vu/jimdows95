@@ -15,7 +15,7 @@ export default function StartMenu(props: { menuIsActive: boolean }) {
   function handleSorryHalClick() {
     dispatch(setSorryHalOpenState(true));
     dispatch(setActiveWindow('sorryHal'));
-    dispatch(addWindow('Error Exiting System'));
+    dispatch(addWindow({ title: 'Error Exiting System', id: 'sorryHal' }));
   }
 
   return (

@@ -30,7 +30,7 @@ export default function WindowFrame(props: WindowFrameProps) {
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
-    dispatch(removeWindow(props.title));
+    dispatch(removeWindow({ title: props.title, id: props.id }));
   }
 
   function handleMax() {
@@ -84,7 +84,7 @@ export default function WindowFrame(props: WindowFrameProps) {
           style={
             openState ?
               maxState ? { position: 'absolute', left: '0', top: '0', zIndex: props.zIdx } // Maximized
-                : { position: 'absolute', left: '25%', top: '15%'} // Open but not maximized
+                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
               : { display: 'none' } // Closed
           }
         >

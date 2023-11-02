@@ -12,7 +12,7 @@ export default function SorryHal() {
 
   function handleConfirm() {
     dispatch(setSorryHalOpenState(false));
-    dispatch(removeWindow('Error Exiting System'));
+    dispatch(removeWindow({ title: 'Error Exiting System', id: 'sorryHal' }));
   }
 
   const content =

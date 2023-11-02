@@ -21,25 +21,25 @@ export default function Projects() {
   function handleColosseumClick() {
     dispatch(setColosseumOpenState(true));
     dispatch(setActiveWindow('colosseum'));
-    dispatch(addWindow('Colosseum'));
+    dispatch(addWindow({ title: 'Colosseum', id: 'colosseum' }));
   }
 
   function handleVicarusClick() {
     dispatch(setVicarusOpenState(true));
     dispatch(setActiveWindow('vicarus'));
-    dispatch(addWindow('Vincent&Icarus'));
+    dispatch(addWindow({ title: 'Vincent&Icarus', id: 'vicarus' }));
   }
 
   function handleJimdows95Click() {
     dispatch(setJimdows95OpenState(true));
     dispatch(setActiveWindow('jimdows95'));
-    dispatch(addWindow('Jimdows95'));
+    dispatch(addWindow({ title: 'Jimdows95', id: 'jimdows95' }));
   }
 
   function handleNHHClick() {
     dispatch(setNHHOpenState(true));
     dispatch(setActiveWindow('nhh'));
-    dispatch(addWindow('New Horizon Hub'));
+    dispatch(addWindow({ title: 'New Horizon Hub', id: 'nhh' }));
   }
 
   const content =

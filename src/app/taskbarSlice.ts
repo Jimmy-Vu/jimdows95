@@ -14,11 +14,12 @@ export const taskbarSlice = createSlice({
   name: 'taskbar',
   initialState,
   reducers: {
-    addWindow: (state, action: PayloadAction<{title: string, id: string}>) => {
+    addWindow: (state, action: PayloadAction<{ title: string, id: string }>) => {
       state.windows.push(action.payload);
     },
     removeWindow: (state, action: PayloadAction<{ title: string, id: string }>) => {
-      const index = state.windows.indexOf(action.payload);
+      const index = state.windows.findIndex(window => JSON.stringify(window) === JSON.stringify(action.payload));
+      console.log(index)
       if (index !== -1) {
         state.windows.splice(index, 1);
       } else {

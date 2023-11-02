@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { setProjectsOpenState, selectProjectsOpenState, setProjectsMaxState, selectProjectsMaxState } from "../../../app/appSlice";
 import { setColosseumOpenState, setVicarusOpenState, setJimdows95OpenState, setNHHOpenState } from "../../../app/projectsSlice";
 import { setActiveWindow } from "../../../app/zIndexSlice";
+import { addWindow } from "../../../app/taskbarSlice";
 import ZIndexCheck from "../lib/ZIndexCheck";
 import Colosseum from "./Colosseum";
 import Vicarus from "./Vicarus";
@@ -20,21 +21,25 @@ export default function Projects() {
   function handleColosseumClick() {
     dispatch(setColosseumOpenState(true));
     dispatch(setActiveWindow('colosseum'));
+    dispatch(addWindow({ title: 'Colosseum', id: 'colosseum' }));
   }
 
   function handleVicarusClick() {
     dispatch(setVicarusOpenState(true));
     dispatch(setActiveWindow('vicarus'));
+    dispatch(addWindow({ title: 'Vincent&Icarus', id: 'vicarus' }));
   }
 
   function handleJimdows95Click() {
     dispatch(setJimdows95OpenState(true));
     dispatch(setActiveWindow('jimdows95'));
+    dispatch(addWindow({ title: 'Jimdows95', id: 'jimdows95' }));
   }
 
   function handleNHHClick() {
     dispatch(setNHHOpenState(true));
     dispatch(setActiveWindow('nhh'));
+    dispatch(addWindow({ title: 'New Horizon Hub', id: 'nhh' }));
   }
 
   const content =

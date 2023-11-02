@@ -1,6 +1,7 @@
 import { useAppDispatch } from "../app/hooks";
 import { setAboutMeOpenState, setProjectsOpenState, setContactMeOpenState } from "../app/appSlice";
 import { setActiveWindow } from "../app/zIndexSlice";
+import { addWindow } from "../app/taskbarSlice";
 import aboutMeIcon from "../assets/about-me-icon.png";
 import projectsIcon from "../assets/open-folder-icon.png";
 import contactMeIcon from "../assets/aim-icon.png";
@@ -11,16 +12,19 @@ export default function DesktopIcons() {
   function handleAboutMeClick() {
     dispatch(setAboutMeOpenState(true));
     dispatch(setActiveWindow('aboutMe'));
+    dispatch(addWindow({ title: 'About Me', id: 'aboutMe' }));
   }
 
   function handleProjectsClick() {
     dispatch(setProjectsOpenState(true));
     dispatch(setActiveWindow('projects'));
+    dispatch(addWindow({ title: 'Projects', id: 'projects' }));
   }
 
   function handleContactMeClick() {
     dispatch(setContactMeOpenState(true));
     dispatch(setActiveWindow('contactMe'));
+    dispatch(addWindow({ title: 'Contact Me', id: 'contactMe' }));
   }
 
   return (

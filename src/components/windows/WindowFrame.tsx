@@ -1,9 +1,10 @@
+import { useState } from "react";
 import Draggable from "react-draggable";
 import { Resizable } from 're-resizable';
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
-import { useState } from "react";
 import { setActiveWindow } from "../../app/zIndexSlice";
+import { removeWindow } from "../../app/taskbarSlice";
 import WindowCenterReturn from "./lib/WindowCenterReturn";
 import bottomRightHandleImage from "/src/assets/resize-right.svg";
 
@@ -29,6 +30,7 @@ export default function WindowFrame(props: WindowFrameProps) {
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
+    dispatch(removeWindow({ title: props.title, id: props.id }));
   }
 
   function handleMax() {
@@ -82,7 +84,7 @@ export default function WindowFrame(props: WindowFrameProps) {
           style={
             openState ?
               maxState ? { position: 'absolute', left: '0', top: '0', zIndex: props.zIdx } // Maximized
-                : { position: 'absolute', left: '25%', top: '15%'} // Open but not maximized
+                : { position: 'absolute', left: '25%', top: '15%' } // Open but not maximized
               : { display: 'none' } // Closed
           }
         >

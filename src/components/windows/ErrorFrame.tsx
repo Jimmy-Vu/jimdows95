@@ -2,13 +2,14 @@ import Draggable from "react-draggable";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../../app/hooks";
 import { setActiveWindow } from "../../app/zIndexSlice";
+import { removeWindow } from "../../app/taskbarSlice";
 
 interface ErrorFrameProps {
   title: string,
   icon: string,
   content: React.ReactNode,
   defaultSize: { width: number, height: number },
-  state: { openState: boolean},
+  state: { openState: boolean },
   setOpenFunc: ActionCreatorWithPayload<boolean, string>,
   setMaxFunc: ActionCreatorWithPayload<boolean, string>,
   id: string
@@ -21,6 +22,7 @@ export default function ErrorFrame(props: ErrorFrameProps) {
 
   function handleClose() {
     dispatch(props.setOpenFunc(false));
+    dispatch(removeWindow({ title: props.title, id: props.id }));
   }
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
@@ -33,7 +35,7 @@ export default function ErrorFrame(props: ErrorFrameProps) {
   return (
     <div onClick={handleClick}>
       <Draggable handle=".error-window__header">
-        <div className="error-window" style={openState ? { height: props.defaultSize.height, width: props.defaultSize.width, zIndex: props.zIdx} : {display: 'none'}}>
+        <div className="error-window" style={openState ? { height: props.defaultSize.height, width: props.defaultSize.width, zIndex: props.zIdx } : { display: 'none' }}>
           <section className="error-window__container">
             <header className="error-window__header">
               <div className="error-window__header__details">

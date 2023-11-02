@@ -15,7 +15,9 @@ export const taskbarSlice = createSlice({
   initialState,
   reducers: {
     addWindow: (state, action: PayloadAction<{ title: string, id: string }>) => {
-      state.windows.push(action.payload);
+      if (state.windows.every(window => JSON.stringify(window) !== JSON.stringify(action.payload))) {
+        state.windows.push(action.payload);
+      }
     },
     removeWindow: (state, action: PayloadAction<{ title: string, id: string }>) => {
       const index = state.windows.findIndex(window => JSON.stringify(window) === JSON.stringify(action.payload));

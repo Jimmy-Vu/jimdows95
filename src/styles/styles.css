@@ -43,7 +43,7 @@
 }
 .taskbar__open-apps__window {
   display: block;
-  width: 100px;
+  width: 130px;
   height: 100%;
   overflow-x: hidden;
   white-space: nowrap;

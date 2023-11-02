@@ -3,10 +3,11 @@ import StartMenu from "./StartMenu";
 import win95Logo from "/src/assets/win95_logo.png";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { selectWindows } from "../app/taskbarSlice";
-import { setActiveWindow } from "../app/zIndexSlice";
+import { setActiveWindow, selectActive } from "../app/zIndexSlice";
 
 export default function Taskbar() {
   const dispatch = useAppDispatch();
+  const activeWindow = useAppSelector(selectActive);
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [currTime, setCurrTime] = useState(new Date().toLocaleTimeString(undefined, {
     hour12: true, // Keep AM/PM indicator
@@ -41,7 +42,7 @@ export default function Taskbar() {
         <section className="taskbar__open-apps">
           {
             openWindows.map(window => (
-              <button onClick={handleClick} id={window.id} className="taskbar__open-apps__window">{window.title}</button>
+              <button onClick={handleClick} id={window.id} className={activeWindow === window.id ? "taskbar__open-apps__window--active" : "taskbar__open-apps__window"}>{window.title}</button>
             ))
           }
         </section>

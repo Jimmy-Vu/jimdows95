@@ -60,6 +60,19 @@
       border-left: 1px solid white;
       border-top: 1px solid white;
       background-color: #C0C0C0;
+
+      &--active {
+        display: block;
+
+        width: 130px;
+        height: 100%;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        border: 2px inset;
+        background-color: #D9D9D9;
+      }
     }
   }
 

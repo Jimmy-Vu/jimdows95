@@ -8,7 +8,7 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  active: 'temp',
+  active: 'aboutMe',
   // windows go by their id names, not their title names
   windows: ['aboutMe', 'projects', 'contactMe', 'sorryHal', 'colosseum', 'vicarus', 'jimdows95', 'nhh']
 }

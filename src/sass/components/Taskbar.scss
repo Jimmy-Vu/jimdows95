@@ -49,14 +49,17 @@
     padding-left: 0.25rem;
 
     &__window {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: block;
 
-      width: fit-content;
-      min-width: 100px;
+      width: 100px;
       height: 100%;
-      border: 1px solid black;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      border-left: 1px solid white;
+      border-top: 1px solid white;
+      background-color: #C0C0C0;
     }
   }
 

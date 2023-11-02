@@ -3,6 +3,7 @@ import StartMenu from "./StartMenu";
 import win95Logo from "/src/assets/win95_logo.png";
 import { useAppSelector } from "../app/hooks";
 import { selectWindows } from "../app/taskbarSlice";
+import { setActiveWindow } from "../app/zIndexSlice";
 
 export default function Taskbar() {
   const [menuIsActive, setMenuIsActive] = useState(false);
@@ -21,7 +22,11 @@ export default function Taskbar() {
         minute: 'numeric'
       }))
     }, 1000)
-  }, [])
+  }, []);
+
+  function handleClick() {
+    setActiveWindow('')
+  }
 
   return (
     <>
@@ -34,7 +39,7 @@ export default function Taskbar() {
         <section className="taskbar__open-apps">
           {
             openWindows.map(window => (
-              <button className="taskbar__open-apps__window">{window}</button>
+              <button onClick={handleClick} id={window.id} className="taskbar__open-apps__window">{window.title}</button>
             ))
           }
         </section>

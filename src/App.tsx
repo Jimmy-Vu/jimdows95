@@ -4,6 +4,7 @@ import AboutMe from "./components/windows/AboutMe";
 import Projects from "./components/windows/projects/Projects";
 import ContactMe from "./components/windows/ContactMe";
 import SorryHal from "./components/windows/SorryHal";
+import WinAmp from "./components/windows/WinAmp";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Projects />
         <ContactMe />
         <SorryHal />
+        <WinAmp />
         <Taskbar />
       </main>
     </>

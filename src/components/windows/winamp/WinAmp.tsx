@@ -1,10 +1,20 @@
 import { useEffect, useRef } from "react";
+import Draggable from "react-draggable";
 import Webamp from "webamp";
 
 const config = {
   initialSkin: {
     url: "src/assets/Windows_95_98.wsz"
-  }
+  },
+  initialTracks: [
+    {
+      metaData: {
+        artist: "Sixpence None The Richer",
+        title: "Kiss Me",
+      },
+      url: "src/components/windows/winamp/assests/Kiss Me.mp3",
+    },
+  ],
 }
 
 export default function WinAmp() {
@@ -27,5 +37,9 @@ export default function WinAmp() {
     return <div>Not supported</div>;
   }
 
-  return <div ref={divRef} />;
+  return (
+    <Draggable>
+      <div ref={divRef} />
+    </Draggable>
+  );
 }

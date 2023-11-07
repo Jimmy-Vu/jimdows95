@@ -4,7 +4,7 @@ import AboutMe from "./components/windows/AboutMe";
 import Projects from "./components/windows/projects/Projects";
 import ContactMe from "./components/windows/ContactMe";
 import SorryHal from "./components/windows/SorryHal";
-import WinAmp from "./components/windows/WinAmp";
+import WinAmp from "./components/windows/winamp/WinAmp";
 
 function App() {
   return (

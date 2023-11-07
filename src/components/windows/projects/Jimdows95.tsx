@@ -39,6 +39,7 @@ export default function Jimdows95() {
           from scratch besides the drag and resize functionalities,
           which are from their respective libraries.
         </p>
+        <p>Crafted with React, Redux Toolkit, Sass, and TypeScript.</p>
       </section>
     </div>;
 

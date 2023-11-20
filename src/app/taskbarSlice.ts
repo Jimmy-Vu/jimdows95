@@ -1,25 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import type { ActionCreatorWithPayload, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
+import { setAboutMeOpenState } from './appSlice'
 
 interface AppState {
-  windows: { title: string, id: string }[]
+  windows: { title: string, id: string, openFunc: ActionCreatorWithPayload<boolean> }[]
 }
 
 const initialState: AppState = {
-  windows: [{ title: 'About Me', id: 'aboutMe' }]
+  windows: [{ title: 'About Me', id: 'aboutMe', openFunc: setAboutMeOpenState }]
 }
 
 export const taskbarSlice = createSlice({
   name: 'taskbar',
   initialState,
   reducers: {
-    addWindow: (state, action: PayloadAction<{ title: string, id: string }>) => {
+    addWindow: (state, action: PayloadAction<{ title: string, id: string, openFunc: ActionCreatorWithPayload<boolean> }>) => {
       if (state.windows.every(window => JSON.stringify(window) !== JSON.stringify(action.payload))) {
         state.windows.push(action.payload);
       }
     },
-    removeWindow: (state, action: PayloadAction<{ title: string, id: string }>) => {
+    removeWindow: (state, action: PayloadAction<{ title: string, id: string, openFunc: ActionCreatorWithPayload<boolean> }>) => {
       const index = state.windows.findIndex(window => JSON.stringify(window) === JSON.stringify(action.payload));
       console.log(index)
       if (index !== -1) {

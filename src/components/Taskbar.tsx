@@ -18,23 +18,33 @@ export default function Taskbar() {
   const openWindows = useAppSelector(selectWindows);
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalID = setInterval(() => {
       setCurrTime(new Date().toLocaleTimeString(undefined, {
         hour12: true, // Keep AM/PM indicator
         hour: 'numeric',
         minute: 'numeric'
       }))
-    }, 1000)
+    }, 1000);
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(intervalID);
   }, []);
 
+  // Handles click events for window buttons
   function handleClick(e: React.MouseEvent<HTMLButtonElement>, openFunc: (arg: boolean) => AnyAction) {
     const target = e.target as HTMLButtonElement;
     dispatch(setActiveWindow(target.id));
     dispatch(openFunc(true));
   }
 
+  // Returns the class name for a window button based on whether it's active
   function getButtonClassName(isActive: boolean): string {
     return isActive ? "taskbar__open-apps__window--active" : "taskbar__open-apps__window";
+  }
+
+  // Returns the class name for the menu button based on whether it's active
+  function getMenuButtonClassName(isActive: boolean): string {
+    return isActive ? `taskbar__menu-btn--active` : `taskbar__menu-btn`;
   }
 
   return (
@@ -43,7 +53,7 @@ export default function Taskbar() {
       <section className="taskbar">
         <button
           onClick={() => setMenuIsActive(prev => !prev)}
-          className={menuIsActive ? `taskbar__menu-btn--active` : `taskbar__menu-btn`}>
+          className={getMenuButtonClassName(menuIsActive)}>
           <img src={win95Logo} alt="windows 95 logo" />
           Start
         </button>

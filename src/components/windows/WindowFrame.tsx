@@ -53,7 +53,9 @@ export default function WindowFrame(props: WindowFrameProps) {
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
     const target = event.target as HTMLDivElement;
-    if (target.closest('button')?.className !== 'projects__icons__item') {
+
+    if (target.closest('button')?.className !== 'projects__icons__item'
+      && target.closest('button')?.className !== 'control-buttons__button') {
       dispatch(setActiveWindow(props.id));
     }
   }

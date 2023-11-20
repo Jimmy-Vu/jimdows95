@@ -40,15 +40,22 @@ export default function WindowFrame(props: WindowFrameProps) {
     dispatch(setActiveWindow(props.id));
   }
 
-  function handleMin() {
+  function handleMaxWhileMaxed() {
     setSize({ width: width, height: height })
     setIsDisabled(false);
-    dispatch(props.setMaxFunc(false))
+    dispatch(props.setMaxFunc(false));
+  }
+
+  function handleMin() {
+    dispatch(props.setOpenFunc(false));
+    dispatch(setActiveWindow('none'));
   }
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
     const target = event.target as HTMLDivElement;
-    if (target.closest('button')?.className !== 'projects__icons__item') {
+
+    if (target.closest('button')?.className !== 'projects__icons__item'
+      && target.closest('button')?.className !== 'control-buttons__button') {
       dispatch(setActiveWindow(props.id));
     }
   }
@@ -96,10 +103,10 @@ export default function WindowFrame(props: WindowFrameProps) {
               </div>
 
               <div className="window__header__control-buttons">
-                <button className="control-buttons__button">
+                <button onClick={handleMin} className="control-buttons__button">
                   <i className="fa-solid fa-window-minimize"></i>
                 </button>
-                <button onClick={handleMin} className="control-buttons__button">
+                <button onClick={handleMaxWhileMaxed} className="control-buttons__button">
                   <i className="fa-regular fa-window-restore"></i>
                 </button>
                 <button onClick={handleClose} className="control-buttons__button">
@@ -150,7 +157,7 @@ export default function WindowFrame(props: WindowFrameProps) {
                 </div>
 
                 <div className="window__header__control-buttons">
-                  <button className="control-buttons__button">
+                  <button onClick={handleMin} className="control-buttons__button">
                     <i className="fa-solid fa-window-minimize"></i>
                   </button>
                   <button onClick={handleMax} className="control-buttons__button">

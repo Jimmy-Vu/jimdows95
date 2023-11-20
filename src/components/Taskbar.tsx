@@ -4,6 +4,7 @@ import win95Logo from "/src/assets/win95_logo.png";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { selectWindows } from "../app/taskbarSlice";
 import { setActiveWindow, selectActive } from "../app/zIndexSlice";
+import { createOpenWindowActionCreator } from "../app/taskbarSlice";
 
 export default function Taskbar() {
   const dispatch = useAppDispatch();
@@ -17,32 +18,58 @@ export default function Taskbar() {
   const openWindows = useAppSelector(selectWindows);
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalID = setInterval(() => {
       setCurrTime(new Date().toLocaleTimeString(undefined, {
         hour12: true, // Keep AM/PM indicator
         hour: 'numeric',
         minute: 'numeric'
       }))
-    }, 1000)
+    }, 1000);
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(intervalID);
   }, []);
 
-  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+  // Handles click events for window buttons
+  function handleClick(e: React.MouseEvent<HTMLButtonElement>, windowID: string) {
     const target = e.target as HTMLButtonElement;
+    const openWindowFunc = createOpenWindowActionCreator(windowID);
     dispatch(setActiveWindow(target.id));
+    dispatch(openWindowFunc(true));
+  }
+
+  // Returns the class name for a window button based on whether it's active
+  function getButtonClassName(isActive: boolean): string {
+    return isActive ? "taskbar__open-apps__window--active" : "taskbar__open-apps__window";
+  }
+
+  // Returns the class name for the menu button based on whether it's active
+  function getMenuButtonClassName(isActive: boolean): string {
+    return isActive ? `taskbar__menu-btn--active` : `taskbar__menu-btn`;
   }
 
   return (
     <>
       <StartMenu menuIsActive={menuIsActive} />
       <section className="taskbar">
-        <button onClick={() => setMenuIsActive(prev => !prev)} className={menuIsActive ? `taskbar__menu-btn--active` : `taskbar__menu-btn`}>
+        <button
+          onClick={() => setMenuIsActive(prev => !prev)}
+          className={getMenuButtonClassName(menuIsActive)}>
           <img src={win95Logo} alt="windows 95 logo" />
           Start
         </button>
         <section className="taskbar__open-apps">
           {
             openWindows.map(window => (
-              <button onClick={handleClick} id={window.id} className={activeWindow === window.id ? "taskbar__open-apps__window--active" : "taskbar__open-apps__window"}>{window.title}</button>
+              <button
+                onClick={
+                  (e) => handleClick(e, window.id)
+                }
+                key={window.id}
+                id={window.id}
+                className={getButtonClassName(activeWindow === window.id)}>
+                {window.title}
+              </button>
             ))
           }
         </section>

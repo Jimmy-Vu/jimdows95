@@ -10,7 +10,7 @@ interface AppState {
 const initialState: AppState = {
   active: 'aboutMe',
   // windows go by their id names, not their title names
-  windows: ['aboutMe', 'projects', 'contactMe', 'sorryHal', 'colosseum', 'vicarus', 'jimdows95', 'nhh']
+  windows: ['none', 'aboutMe', 'projects', 'contactMe', 'sorryHal', 'colosseum', 'vicarus', 'jimdows95', 'nhh']
 }
 
 export const zIndexSlice = createSlice({

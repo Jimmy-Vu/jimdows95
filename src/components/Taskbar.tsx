@@ -4,7 +4,7 @@ import win95Logo from "/src/assets/win95_logo.png";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { selectWindows } from "../app/taskbarSlice";
 import { setActiveWindow, selectActive } from "../app/zIndexSlice";
-import { AnyAction } from "@reduxjs/toolkit";
+import { createOpenWindowActionCreator } from "../app/taskbarSlice";
 
 export default function Taskbar() {
   const dispatch = useAppDispatch();
@@ -31,10 +31,11 @@ export default function Taskbar() {
   }, []);
 
   // Handles click events for window buttons
-  function handleClick(e: React.MouseEvent<HTMLButtonElement>, openFunc: (arg: boolean) => AnyAction) {
+  function handleClick(e: React.MouseEvent<HTMLButtonElement>, windowID: string) {
     const target = e.target as HTMLButtonElement;
+    const openWindowFunc = createOpenWindowActionCreator(windowID);
     dispatch(setActiveWindow(target.id));
-    dispatch(openFunc(true));
+    dispatch(openWindowFunc(true));
   }
 
   // Returns the class name for a window button based on whether it's active
@@ -62,7 +63,7 @@ export default function Taskbar() {
             openWindows.map(window => (
               <button
                 onClick={
-                  (e) => handleClick(e, window.openFunc)
+                  (e) => handleClick(e, window.id)
                 }
                 key={window.id}
                 id={window.id}

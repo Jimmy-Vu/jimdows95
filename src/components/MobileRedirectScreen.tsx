@@ -6,10 +6,10 @@ export default function MobileRedirectScreen() {
         <p>
           This site was developed with a desktop first approach. It is not currently optimized for mobile devices.
           Please view this site on a desktop or laptop computer.
-          Otherwise, please check out my original mobile responsive portfolio site at <a href="https://jimmyvu.co" target="_blank">jimmyvu.co</a>.
+          Otherwise, please check out my original mobile responsive portfolio site at <a href="https://jimmyvu.netlify.app/" target="_blank">jimmyvu.netlify.app</a>.
         </p>
       </section>
-      <a href="https://jimmyvu.co" target="_blank" className="mobile-redirect-screen__button">Proceed to the mobile site</a>
+      <a href="https://jimmyvu.netlify.app/" target="_blank" className="mobile-redirect-screen__button">Proceed to the mobile site</a>
     </div>
   );
 }

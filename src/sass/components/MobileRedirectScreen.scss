@@ -1,0 +1,30 @@
+.mobile-redirect-screen {
+  position: absolute;
+  z-index: 200;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100dvh;
+  padding: 1rem;
+
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &__text {
+    font-size: 20px;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  &__button {
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+
+    color: black;
+    background-color: white;
+    font-size: 16px;
+  }
+}
